@@ -1,0 +1,49 @@
+Microsoft Windows [Version 10.0.22631.4169]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\githubprogram>git clone https://github.com/Abhimanyu-Developer123/pythonprogram.git
+Cloning into 'pythonprogram'...
+warning: You appear to have cloned an empty repository.
+
+C:\githubprogram>cd pythonprogram
+
+C:\githubprogram\pythonprogram>git commit -m "basic program"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Athi@LAPTOP-49Q5OSR8.(none)')
+
+C:\githubprogram\pythonprogram>git config --global user.email "athivenkadesh@gmail.com"
+
+C:\githubprogram\pythonprogram>git config --global user.name "Abhimanyu-Developer123"
+
+C:\githubprogram\pythonprogram>git  add .
+
+C:\githubprogram\pythonprogram>git push
+error: src refspec refs/heads/main does not match any
+error: failed to push some refs to 'https://github.com/Abhimanyu-Developer123/pythonprogram.git'
+
+C:\githubprogram\pythonprogram>git commit -m "basic program"
+[main (root-commit) 31848e8] basic program
+ 1 file changed, 1 insertion(+)
+ create mode 100644 basic/hello.py
+
+C:\githubprogram\pythonprogram>git  add .
+
+C:\githubprogram\pythonprogram>git push
+info: please complete authentication in your browser...
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 280 bytes | 140.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Abhimanyu-Developer123/pythonprogram.git
+ * [new branch]      m
