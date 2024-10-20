@@ -5,4 +5,4 @@ no2=float(input())
 s=no1+no2
 print("first no=",no1)
 print("second no=",no2)
-print("ad two value=",s)
+print("add two value=",s)
