@@ -1,4 +1,4 @@
-i=100
+i=89
 while i>0:
   print(i)
   i=i-1
