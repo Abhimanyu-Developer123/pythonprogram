@@ -1,2 +1,2 @@
-res=lambda x:x*x   #res function
+res=lambda x:x*x   
 print(res(int(input())))

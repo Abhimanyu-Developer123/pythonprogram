@@ -1,5 +1,5 @@
 def show():
-	print("show function")
+	print("hello")
 s=show
 d=s
 show()
