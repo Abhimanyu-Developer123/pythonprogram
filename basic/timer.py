@@ -14,4 +14,4 @@ def timer_decorator(func):
 def compute_square(n):
     return [i ** 2 for i in range(n)]
 
-compute_square(100)
+compute_square(1000)

@@ -1,0 +1,877 @@
+String :
+It is collection of char digit special symbole. 
+
+in python we can represent string
+
+'a3'
+"a3"
+'''a3'''
+"""a3"""
+
+
+
+
+s="hi"
+print(type(s))
+print(s)
+
+o/p:
+str 
+hi
+
+
+s='''hi 
+    bye'''
+print(type(s))
+print(s)
+
+
+s="""hi 
+    bye"""
+print(type(s))
+print(s)
+
+
+s="good 'mo'rning"
+print(type(s))
+print(s)
+
+o/p:
+good 'mo'rning
+
+
+s='good "mo"rning'
+print(type(s))
+print(s)
+
+
+string is immutable.
+
+s1="hi"
+s2="hi"
+print(id(s1),id(s2))
+
+
+
+
+str   predefined class  
+str()   object 
+
+
+
+
+s="""hi 
+ram"""
+print(type(s))
+print(s)
+
+o/p:
+str 
+hi
+ram 
+
+
+
+
+indexing and slicing 
+____
+stringname[index]
+                    0   1  2  3  4  5  6   +ve
+                    w   e  l  c  o  m  e 
+                    -7  -6 -5 -4 -3 -2 -1  -ve
+s="welcome"
+print(s)
+print(s[1])
+print(s[-6])
+#print(s[7]) #index error
+o/p:
+welcome
+e 
+e 
+
+
+
+slicing
+__
+stringname[start:stop:step]
+                     0   1  2  3  4  5  6   +ve
+                     w   e  l  c  o  m  e 
+                     -7  -6 -5 -4 -3 -2 -1  -ve
+s="welcome"
+print(s[2:5:1]) #lco
+print(s[-5:-2:1]) #lco 
+print(s[4:1:-1])#ocl
+print(s[-3:-6:-1])#ocl
+o/p:
+lco
+lco
+ocl 
+ocl
+
+
+
+
+                     0   1  2  3  4  5  6   +ve
+                     w   e  l  c  o  m  e 
+                     -7  -6 -5 -4 -3 -2 -1  -ve
+s="welcome"
+print(s)
+print(s[0:7:1])
+print(s[0:100:1])
+print(s[::1])
+print(s[::])
+print(s[-7::])
+print(s[::2])
+print(s[5:3:]) #nothing
+o/p
+C:\Users\HP\Desktop>py test.py
+welcome
+welcome
+welcome
+welcome
+welcome
+welcome
+wloe
+
+ 					 0   1  2  3  4  5  6   +ve
+                     w   e  l  c  o  m  e 
+                     -7  -6 -5 -4 -3 -2 -1  -ve
+s="welcome"
+print(s[::-1])
+print(s[-1::-1])
+print(s[6::-1])
+print(s[-1:-8:-1])
+print(s[-1:-100:-1])
+print(s[-1:-1:-1])
+o/p:
+emoclew
+emoclew
+emoclew
+emoclew
+emoclew
+nothing
+					 0   1  2  3  4  5  6   +ve
+                     w   e  l  c  o  m  e 
+                     -7  -6 -5 -4 -3 -2 -1  -ve
+
+s="welcome"
+print(s[5:3:1]) #nothing
+print(s[0:0:2]) #nothing
+print(s[0::2])#wloe
+print(s[6::-2])#eolw
+
+
+#wap count no char in string
+#len():inbulit function count no of char
+s="welcome"
+print(len(s))
+print(len("ok"))
+o/p:
+7
+2
+
+
+some predefined member function  in string
+______
+
+s="ram is a Good boy"
+s=s.title()
+print(s)
+
+o/P:
+Ram Is A Good Boy
+
+
+
+
+s="ram is a Good boy"
+s=s.capitalize()
+print(s)
+
+
+o/p:
+Ram is a good boy
+
+
+s="ram is a Good boy"
+s=s.upper()
+print(s)
+o/p:
+RAM IS A GOOD BOY
+
+
+s="rAM is a Good boy"
+s=s.lower()
+print(s)
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+ram is a good boy
+
+or
+s="rAM is a Good boy"
+s=s.casefold()
+print(s)
+o/p:
+ram is a good boy
+
+
+
+
+
+s="rAM is a Good boy"
+print(s.swapcase())
+print(s)
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+Ram IS A gOOD BOY
+rAM is a Good boy
+
+
+
+
+
+lstrip():   remove space left side 
+s=" hi"
+print(len(s))
+s=s.lstrip()
+print(len(s))
+
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+3
+2
+
+
+
+
+
+
+
+rstrip(): remove space right side
+s="hi "
+print(len(s))
+s=s.rstrip()
+print(len(s))
+
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+3
+2
+
+
+
+
+
+
+strip(): remove space both side
+s=" hi "
+print(len(s))
+s=s.strip()
+print(len(s))
+
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+4
+2
+
+
+
+
+
+
+s="hi"
+print(s)
+print(s.center(5))
+print(s.center(5,"*"))
+print(s.ljust(5,"*"))
+print(s.rjust(5,"*"))
+
+o/p:
+hi
+  hi
+hi*
+hi***
+***hi
+
+
+s="welcome"
+print(s)
+print(s.center(5))
+print(s.center(5,"*"))
+print(s.ljust(5,"*"))
+print(s.rjust(5,"*"))
+o/p:
+welcome
+welcome
+welcome
+welcome
+welcome
+
+
+s="welcome"
+print(s)
+print(s.center(10))
+print(s.center(10,"*"))
+print(s.ljust(10,"*"))
+print(s.rjust(10,"*"))
+
+
+
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+welcome
+ welcome
+welcome*
+welcome***
+***welcome
+
+
+s="ram is a good boy"
+print(s.startswith("r"))
+print(s.startswith("ram"))
+print(s.startswith("rom"))
+print(s.startswith("ram is a good boy"))
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+True
+True
+False
+True
+
+
+
+
+
+s="ram is a good boy"
+print(s.endswith("y"))
+print(s.endswith("boy"))
+print(s.endswith("box"))
+print(s.endswith("ram is a good boy"))
+
+o/p:
+True
+True
+False
+True
+            
+startwith(string,start,stop)
+
+
+s="ram is a good boy"
+print(s.startswith("r",4))
+print(s.startswith("i",4))
+print(s.endswith("o",4,11))
+
+o/p:
+False
+True
+True
+
+
+
+s="ram is a good is boy"
+print(s.count("a"))
+print(s.count("is"))
+print(s.count("x"))
+
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+2
+2
+0
+
+s="ram is a good is boy"
+print(s.count(" "))
+o/p:
+5
+
+
+s="ram is a good is boy"
+s=s.replace("is","was")
+print(s)
+
+o/p:
+ram was a good was boy
+
+
+
+#dispaly individual letter
+s="ram is a good boy"
+for i in s:
+    print(type(i),i)
+C:\Users\HP\Desktop\0methodprogram>py 1.py
+<class 'str'> r
+<class 'str'> a
+<class 'str'> m
+<class 'str'>
+<class 'str'> i
+<class 'str'> s
+<class 'str'>
+<class 'str'> a
+<class 'str'>
+<class 'str'> g
+<class 'str'> o
+<class 'str'> o
+<class 'str'> d
+<class 'str'>
+<class 'str'> b
+<class 'str'> o
+<class 'str'> y
+
+
+#dispaly individual letter
+s="ram is a good boy"
+for i in range(0,len(s),1):
+    print(type(i),i,s[i])
+C:\Users\HP\Desktop\0methodprogram>py 1.py
+<class 'int'> 0 r
+<class 'int'> 1 a
+<class 'int'> 2 m
+<class 'int'> 3
+<class 'int'> 4 i
+<class 'int'> 5 s
+<class 'int'> 6
+<class 'int'> 7 a
+<class 'int'> 8
+<class 'int'> 9 g
+<class 'int'> 10 o
+<class 'int'> 11 o
+<class 'int'> 12 d
+<class 'int'> 13
+<class 'int'> 14 b
+<class 'int'> 15 o
+<class 'int'> 16 y
+
+#dispaly individual letter
+s="ram is a good boy"
+for i in range(0,len(s),1):
+    print(s[i])
+C:\Users\HP\Desktop\0methodprogram>py 1.py
+r
+a
+m
+
+i
+s
+
+a
+
+g
+o
+o
+d
+
+b
+o
+y
+
+
+#display rev order
+s="ram is a good boy"
+for i in range(len(s)-1,1,-1):
+    print(s[i])
+
+C:\Users\HP\Desktop\0methodprogram>py 1.py
+y
+o
+b
+
+d
+o
+o
+g
+
+a
+
+s
+i
+
+m
+
+
+
+
+
+s="ram is a good is boy"
+print(s.index("a"))
+print(s.index("m"))
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+1
+2
+
+
+
+s="ram is a good is boy"
+print(s.rindex("a"))
+print(s.rindex("m"))
+print(s.rindex("x"))
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+7
+2
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\javascript\3.py", line 4, in <module>
+    print(s.rindex("x"))
+          ^^^^^^^^^^^^^
+ValueError: substring not found
+
+
+s="ram is a good is boy"
+print(s.find("a"))
+print(s.find("m"))
+print(s.find("x"))
+
+o/p:
+
+C:\Users\HP\Desktop\javascript>py 3.py
+1
+2
+-1
+
+
+s="ram is a good is boy"
+print(s.rfind("a"))
+print(s.rfind("m"))
+print(s.rfind("x"))
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+7
+2
+-1
+
+s="Ab3"
+print(s.isalnum())
+s1="Ab#3"
+print(s1.isalnum())
+o/p:
+True
+False
+
+
+s="Ab"
+print(s.isalpha())
+s1="Ab3"
+print(s1.isalpha())
+o/p:
+True
+False
+
+
+
+s="125"
+print(s.isdigit())
+s1="125a"
+print(s1.isdigit())
+o/p:
+True
+False
+
+
+s=" "
+print(s.isspace())
+s1="ram is"
+print(s1.isspace())
+
+o/p:
+True
+False
+
+
+
+
+
+
+s="a"
+print(s.islower())
+s="B"
+print(s.islower())
+
+o/p:
+True
+False
+
+
+
+s="a"
+print(s.isupper())
+s="B"
+print(s.isupper())
+
+
+o/p:
+False
+True
+
+
+s="hi"
+x=s.encode() #String conver byte
+print(type(s),type(x))
+print(s,x)
+s1=x.decode() #byte convert to string
+print(s1)
+
+
+o/P:
+C:\Users\HP\Desktop\javascript>py 3.py
+<class 'str'> <class 'bytes'>
+hi b'hi'
+hi
+
+
+
+s="ram is a good boy"
+L=s.split()
+print(L)
+
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+['ram', 'is', 'a', 'good', 'boy']
+
+
+s="ram is a good boy"
+L=s.split("i")
+print(L)
+o/p:
+C:\Users\HP\Desktop\javascript>py 3.py
+['ram ', 's a good boy']
+
+
+
+
+
+
+
+s="ram is a good boy"
+L=s.split()
+s1=" ".join(L)
+print(s1)
+o/p:
+ram is a good boy
+
+
+s="ram is a good boy"
+L=s.split()
+s1="#".join(L)
+print(s1)
+
+o/p:
+ram#is#a#good#boy
+
+
+s="ram is a good boy"
+L=s.split("a")
+s1="#".join(L)
+print(s1)
+
+
+r#m is # good boy
+
+
+
+
+
+
+#wap display all individual letter in string forward
+s="welcome"
+for i in s:
+  print(i)
+
+o/p:
+w
+e
+l
+c
+o
+m
+e
+
+range(start,stop,step)
+range(start,stop)
+range(stop);  start=0   step=1
+
+#wap display all individual letter in string forward
+#by using index
+s="welcome"
+for i in range(len(s)):
+  print(s[i])
+o/p:
+w
+e 
+l
+c
+o
+m
+e
+
+
+
+
+
+#wap display all individual letter in string forward
+#by using index
+s="welcome"
+for i in range(0,len(s),1):
+    print(s[i])
+o/p:
+w
+e 
+l
+c
+o
+m
+e
+
+
+#wap display all individual letter in string forward
+#by using index
+s="welcome"
+for i in range(-len(s),0,1):
+    print(s[i])
+o/p:
+w
+e 
+l
+c
+o
+m
+e
+
+
+#wap dispaly all charcter in revorder
+s="welcome"
+for i in range(len(s)-1,-1,-1):
+    print(s[i])
+
+o/p:
+e
+m
+o
+c
+l
+e
+w
+
+
+
+
+
+
+#wap dispaly all charcter in revorder
+s="welcome"
+for i in range(-1,-len(s)-1,-1):
+    print(s[i])
+
+o/p:
+e
+m
+o
+c
+l
+e
+w
+
+#wap dispaly all charcter in revorder
+s="welcome"
+s1=s[::-1]
+for i in s1:
+    print(i)
+
+o/p:
+e
+m
+o
+c
+l
+e
+w
+
+#wap take string from keyboad check first char is upper case or not
+print("enter a string ")
+s=input()
+if s[0].isupper():
+    print("upper case")
+else:
+    print("not upper case")
+
+
+
+#wap take string from keyboad check first char is upper case or not
+print("enter a string ")
+s=input()
+L=s.split()
+if L[0].isupper():
+    print("first word all letter upper")
+else:
+    print("not")
+
+or
+
+#wap take string from keyboad check first char is upper case or not
+print("enter a string ")
+s=input()
+if s[:s.index(" "):].isupper():
+    print("first word all letter upper")
+else:
+    print("not")
+
+
+#wap take string from keyboad display first letter of every word
+print("enter a string ")
+s=input()
+L=s.split()
+for i in L:
+    print(i[0],end="")
+
+
+
+
+
+
+
+#wap count no of char alp up lw vw co  dg  space sy   word.
+print("enter a string ")
+s=input()
+ch,al,up,lw,vw,co,dg,sp,sy,wd=0,0,0,0,0,0,0,0,0,0
+for i in s:
+  if i.isalpha():
+    al=al+1
+    if i.isupper():
+      up=up+1
+    else:
+      lw=lw+1
+    if i in "aeiouAEIOU":
+      vw=vw+1
+    else:
+      co=co+1
+  elif i.isdigit():
+    dg=dg+1
+  elif i.isspace():
+    sp=sp+1
+  else:
+    sy=sy+1
+  ch=ch+1
+wd=sp+1
+print("no of char=",ch)
+print("no of alp=",al)
+print("no of  upper=",up)
+print("no of lower=",lw)
+print("no of vw=",vw)
+print("no of co =",co)
+print("no of digit=",dg)
+print("no of space=",sp)
+print("no of sy=",sy)
+print("no of word=",wd)
+
+enter a string
+ram is a Good b1&
+no of char= 17
+no of alp= 11
+no of  upper= 1
+no of lower= 10
+no of vw= 5
+no of co = 6
+no of digit= 1
+no of space= 4
+no of sy= 1
+no of word= 5
