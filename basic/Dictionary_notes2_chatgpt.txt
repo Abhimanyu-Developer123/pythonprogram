@@ -1,0 +1,92 @@
+dict
+___________________________________________________________________
+dictanory predefined method in 
+
+'s dictionary provides a wide range of predefined methods to work with its key-value pairs. Here's a list of commonly used dictionary methods:
+
+1. Adding/Updating Items
+dict.update([other]): Updates the dictionary with the key-value pairs from another dictionary or an iterable of key-value pairs.
+
+
+d = {'a': 1}
+d.update({'b': 2})
+print(d)  # Output: {'a': 1, 'b': 2}
+2. Accessing Values
+dict.get(key[, default]): Returns the value for a key if it exists, else returns the default value.
+
+
+d = {'a': 1}
+print(d.get('a'))       # Output: 1
+print(d.get('b', 0))    # Output: 0
+3. Removing Items
+dict.pop(key[, default]): Removes the key and returns its value. If the key is not found, returns the default value (or raises KeyError if no default is provided).
+
+
+
+d = {'a': 1, 'b': 2}
+print(d.pop('a'))  # Output: 1
+print(d)           # Output: {'b': 2}
+dict.popitem(): Removes and returns the last inserted (key, value) pair as a tuple.
+
+
+
+d = {'a': 1, 'b': 2}
+print(d.popitem())  # Output: ('b', 2)
+dict.clear(): Removes all items from the dictionary.
+
+
+
+d = {'a': 1}
+d.clear()
+print(d)  # Output: {}
+4. Checking Keys
+dict.keys(): Returns a view object containing the dictionary’s keys.
+
+
+
+d = {'a': 1, 'b': 2}
+print(d.keys())  # Output: dict_keys(['a', 'b'])
+dict.values(): Returns a view object containing the dictionary’s values.
+
+
+
+print(d.values())  # Output: dict_values([1, 2])
+dict.items(): Returns a view object containing the dictionary’s key-value pairs as tuples.
+
+
+
+print(d.items())  # Output: dict_items([('a', 1), ('b', 2)])
+5. Setting Default Values
+dict.setdefault(key[, default]): Returns the value of a key if it exists; otherwise, inserts the key with the default value and returns it.
+
+
+d = {'a': 1}
+print(d.setdefault('b', 2))  # Output: 2
+print(d)                    # Output: {'a': 1, 'b': 2}
+6. Copying
+dict.copy(): Returns a shallow copy of the dictionary.
+
+
+d = {'a': 1}
+d2 = d.copy()
+print(d2)  # Output: {'a': 1}
+7. Other Utility Methods
+dict.fromkeys(seq[, value]): Creates a new dictionary with keys from seq and values set to value (default is None).
+
+
+keys = ['a', 'b']
+d = dict.fromkeys(keys, 0)
+print(d)  # Output: {'a': 0, 'b': 0}
+8. Membership Operators
+key in dict: Checks if a key exists in the dictionary.
+
+
+
+d = {'a': 1}
+print('a' in d)  # Output: True
+key not in dict: Checks if a key does not exist in the dictionary.
+
+
+
+print('b' not in d)  # Output: True
+These methods make  dictionaries highly versatile and convenient for a wide variety of use cases.

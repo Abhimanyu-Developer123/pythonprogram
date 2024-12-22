@@ -1,5 +1,5 @@
-String :
-It is collection of char digit special symbole. 
+string :
+it is collection of char digit special symbole. 
 
 in python we can represent string
 
@@ -76,9 +76,9 @@ ram
 indexing and slicing 
 ____
 stringname[index]
-                    0   1  2  3  4  5  6   +ve
-                    w   e  l  c  o  m  e 
-                    -7  -6 -5 -4 -3 -2 -1  -ve
+                     0   1  2  3  4  5  6   +ve
+                     w   e  l  c  o  m  e 
+                     -7  -6 -5 -4 -3 -2 -1  -ve
 s="welcome"
 print(s)
 print(s[1])

@@ -1,0 +1,183 @@
+List
+____________
+In , a list is an ordered, mutable, and dynamic collection that can hold elements of different data types. Lists provide a rich set of predefined methods for efficient manipulation and querying.
+
+1. Adding Elements
+list.append(element)
+Adds an element to the end of the list.
+
+
+
+lst = [1, 2]
+lst.append(3)
+print(lst)  # Output: [1, 2, 3]
+list.insert(index, element)
+Inserts an element at the specified position.
+
+
+
+lst = [1, 3]
+lst.insert(1, 2)
+print(lst)  # Output: [1, 2, 3]
+list.extend(iterable)
+Adds all elements of an iterable (e.g., list, tuple, set) to the end of the list.
+
+
+
+lst = [1, 2]
+lst.extend([3, 4])
+print(lst)  # Output: [1, 2, 3, 4]
+2. Removing Elements
+list.remove(element)
+Removes the first occurrence of a specified element. Raises a ValueError if the element is not found.
+
+
+
+lst = [1, 2, 3, 2]
+lst.remove(2)
+print(lst)  # Output: [1, 3, 2]
+list.pop([index])
+Removes and returns the element at the specified index (default is the last element). Raises IndexError if the list is empty or the index is out of range.
+
+
+
+lst = [1, 2, 3]
+print(lst.pop())  # Output: 3
+print(lst)        # Output: [1, 2]
+list.clear()
+Removes all elements from the list.
+
+
+
+lst = [1, 2, 3]
+lst.clear()
+print(lst)  # Output: []
+3. Accessing Elements
+list[index]
+Access an element by its index (0-based).
+
+
+
+lst = [1, 2, 3]
+print(lst[0])  # Output: 1
+list[-1]
+Access the last element using negative indexing.
+
+
+
+print(lst[-1])  # Output: 3
+list[start:stop:step]
+Slice the list to access a subset of elements.
+
+
+
+print(lst[0:2])  # Output: [1, 2]
+print(lst[::-1])  # Output: [3, 2, 1]
+4. Searching
+list.index(element[, start[, end]])
+Returns the index of the first occurrence of the element. Raises a ValueError if the element is not found.
+
+
+
+lst = [1, 2, 3, 2]
+print(lst.index(2))  # Output: 1
+list.count(element)
+Returns the number of occurrences of an element.
+
+
+
+lst = [1, 2, 3, 2]
+print(lst.count(2))  # Output: 2
+5. Sorting
+list.sort(key=None, reverse=False)
+Sorts the list in place (ascending by default).
+
+
+
+lst = [3, 1, 2]
+lst.sort()
+print(lst)  # Output: [1, 2, 3]
+lst.sort(reverse=True)
+print(lst)  # Output: [3, 2, 1]
+sorted(iterable, key=None, reverse=False)
+Returns a new sorted list from the iterable.
+
+
+
+lst = [3, 1, 2]
+print(sorted(lst))  # Output: [1, 2, 3]
+6. Reversing
+list.reverse()
+Reverses the list in place.
+
+
+
+lst = [1, 2, 3]
+lst.reverse()
+print(lst)  # Output: [3, 2, 1]
+reversed(list)
+Returns an iterator that accesses the list in reverse order.
+
+
+
+lst = [1, 2, 3]
+print(list(reversed(lst)))  # Output: [3, 2, 1]
+7. Copying
+list.copy()
+Returns a shallow copy of the list.
+
+
+
+lst = [1, 2, 3]
+lst_copy = lst.copy()
+print(lst_copy)  # Output: [1, 2, 3]
+list[:]
+Another way to create a shallow copy using slicing.
+
+
+
+lst_copy = lst[:]
+print(lst_copy)  # Output: [1, 2, 3]
+8. Other Utility Methods
+list.extend(iterable)
+Extends the list by appending all elements from the iterable.
+
+
+
+lst = [1, 2]
+lst.extend([3, 4])
+print(lst)  # Output: [1, 2, 3, 4]
+list.reverse()
+Reverses the elements of the list in place.
+
+
+
+lst = [1, 2, 3]
+lst.reverse()
+print(lst)  # Output: [3, 2, 1]
+9. Membership Testing
+element in list
+Checks if an element exists in the list.
+
+
+
+lst = [1, 2, 3]
+print(2 in lst)  # Output: True
+element not in list
+Checks if an element does not exist in the list.
+
+
+
+print(4 not in lst)  # Output: True
+Example of List Methods in Action:
+
+
+lst = [1, 3, 5]
+lst.append(7)        # [1, 3, 5, 7]
+lst.insert(1, 2)     # [1, 2, 3, 5, 7]
+lst.remove(5)        # [1, 2, 3, 7]
+lst.sort()           # [1, 2, 3, 7]
+lst.reverse()        # [7, 3, 2, 1]
+print(lst.count(3))  # 1
+print(lst.index(3))  # 1
+Lists are one of the most versatile and widely used data structures in , ideal for storing and managing sequences of data.

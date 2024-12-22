@@ -1,0 +1,254 @@
+String
+___________
+
+
+In , a string is a sequence of characters enclosed in single (') or double (") quotes. Strings are immutable, meaning their content cannot be changed once created.
+
+Creating Strings
+Single Quotes:
+
+
+
+s = 'Hello'
+Double Quotes:
+
+
+
+s = "World"
+Triple Quotes (Multiline Strings):
+
+
+
+s = '''This is
+a multiline
+string.'''
+Empty String:
+
+
+
+s = ""
+Accessing String Elements
+Indexing: Access characters by their position (0-based).
+
+
+
+s = ""
+print(s[0])  # Output: P
+print(s[-1])  # Output: n
+Slicing: Extract substrings using slice notation.
+
+
+
+print(s[1:4])  # Output: yth
+print(s[::-1])  # Output: nohtyP (reverse string)
+Common String Methods
+1. String Case
+str.upper(): Converts all characters to uppercase.
+
+
+
+print("hello".upper())  # Output: HELLO
+str.lower(): Converts all characters to lowercase.
+
+
+
+print("WORLD".lower())  # Output: world
+str.capitalize(): Capitalizes the first character.
+
+
+
+print("".capitalize())  # Output: 
+str.title(): Converts to title case (first letter of each word capitalized).
+
+
+
+print(" programming".title())  # Output:  Programming
+str.swapcase(): Swaps the case of each character.
+
+
+
+print("".swapcase())  # Output: 
+2. Searching and Checking
+str.find(substring): Returns the index of the first occurrence of the substring, or -1 if not found.
+
+
+
+print("hello world".find("world"))  # Output: 6
+str.index(substring): Same as find() but raises a ValueError if the substring is not found.
+
+
+
+print("hello".index("o"))  # Output: 4
+str.startswith(prefix): Checks if the string starts with the specified prefix.
+
+
+
+print("hello".startswith("he"))  # Output: True
+str.endswith(suffix): Checks if the string ends with the specified suffix.
+
+
+
+print("hello".endswith("lo"))  # Output: True
+3. Modifying Strings
+str.replace(old, new): Replaces all occurrences of a substring with another.
+
+
+
+print("apple".replace("p", "b"))  # Output: abble
+str.strip([chars]): Removes leading and trailing characters (default is whitespace).
+
+
+
+print("  hello  ".strip())  # Output: hello
+str.lstrip([chars]): Removes leading characters.
+
+
+
+print("  hello".lstrip())  # Output: hello
+str.rstrip([chars]): Removes trailing characters.
+
+
+
+print("hello  ".rstrip())  # Output: hello
+4. Splitting and Joining
+str.split([delimiter]): Splits the string into a list of substrings based on a delimiter.
+
+
+
+print("a,b,c".split(","))  # Output: ['a', 'b', 'c']
+str.rsplit([delimiter]): Splits from the right side.
+
+
+
+print("a,b,c".rsplit(",", 1))  # Output: ['a,b', 'c']
+str.join(iterable): Joins elements of an iterable into a single string using the string as a delimiter.
+
+
+
+print("-".join(["a", "b", "c"]))  # Output: a-b-c
+5. String Testing
+str.isalpha(): Checks if all characters are alphabetic.
+
+
+
+print("hello".isalpha())  # Output: True
+str.isdigit(): Checks if all characters are digits.
+
+
+
+print("123".isdigit())  # Output: True
+str.isalnum(): Checks if all characters are alphanumeric.
+
+
+
+print("hello123".isalnum())  # Output: True
+str.isspace(): Checks if all characters are whitespace.
+
+
+
+print("   ".isspace())  # Output: True
+str.islower(): Checks if all characters are lowercase.
+
+
+
+print("hello".islower())  # Output: True
+str.isupper(): Checks if all characters are uppercase.
+
+
+
+print("WORLD".isupper())  # Output: True
+String Formatting
+F-Strings (Recommended):
+
+
+
+name = "Alice"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+str.format():
+
+
+
+print("My name is {} and I am {} years old.".format("Alice", 30))
+Old Style (%):
+
+
+
+print("My name is %s and I am %d years old." % ("Alice", 30))
+Common Operations
+Concatenation:
+
+
+
+s1 = "Hello"
+s2 = "World"
+print(s1 + " " + s2)  # Output: Hello World
+Repetition:
+
+
+
+print("Hello " * 3)  # Output: Hello Hello Hello
+Length:
+
+
+
+print(len("Hello"))  # Output: 5
+Membership Testing:
+
+
+
+print("H" in "Hello")  # Output: True
+Example:
+
+
+s = "  Programming "
+print(s.strip())               # Remove leading/trailing spaces
+print(s.lower())               # Convert to lowercase
+print(s.replace("", "C"))  # Replace substring
+print("Pro" in s)              # Check membership
+Strings in  are highly versatile and widely used for text processing, making them a core component of any  program.
+
+
+# Creating Strings
+s1 = "Hello, World!"
+s2 = ' Programming'
+s3 = '''This is a 
+multiline string.'''
+
+# Accessing String Elements
+print(s1[0])        # Output: H
+print(s2[-1])       # Output: g
+print(s2[0:6])      # Output: 
+
+# Common Methods
+print(s1.lower())   # Output: hello, world!
+print(s1.upper())   # Output: HELLO, WORLD!
+print(s1.title())   # Output: Hello, World!
+
+# Searching and Checking
+print(s1.find("World"))    # Output: 7
+print(s1.startswith("He")) # Output: True
+print(s1.endswith("!"))    # Output: True
+
+# Modifying Strings
+print(s1.replace("World", ""))  # Output: Hello, !
+
+print(s1.strip("!"))                  # Output: Hello, World
+
+# Splitting and Joining
+words = s2.split(" ")      # Output: ['', 'Programming']
+print(" ".join(words))     # Output:  Programming
+
+# String Testing
+print(s1.isalpha())        # Output: False (contains punctuation and spaces)
+print("12345".isdigit())   # Output: True
+print("abc123".isalnum())  # Output: True
+
+# String Formatting
+name = "Alice"
+age = 25
+print(f"My name is {name} and I am {age} years old.") 
+ # Output: My name is Alice and I am 25 years old.
+
+
+

@@ -1,0 +1,145 @@
+
+
+Tuple
+______________
+In , a tuple is an ordered and immutable collection that can hold elements of different data types. Once created, tuples cannot be modified, making them useful for representing fixed collections of items.
+
+Here’s an overview of tuple-related concepts and methods:
+
+Key Characteristics of Tuples
+Immutable: Elements cannot be changed, added, or removed after creation.
+Ordered: Elements retain their insertion order.
+Heterogeneous: Can store elements of different data types.
+Creating Tuples
+Basic Syntax: Use parentheses () or omit them when assigning multiple values.
+
+
+
+t1 = (1, 2, 3)  # With parentheses
+t2 = 1, 2, 3    # Without parentheses
+print(t1)       # Output: (1, 2, 3)
+Single Element Tuple: Add a trailing comma.
+
+
+
+t = (1,)  # Single-element tuple
+print(type(t))  # Output: <class 'tuple'>
+Empty Tuple:
+
+
+
+empty = ()
+print(type(empty))  # Output: <class 'tuple'>
+Accessing Tuple Elements
+Indexing: Access elements using their index (0-based).
+
+
+
+t = (10, 20, 30)
+print(t[0])  # Output: 10
+Negative Indexing: Access elements from the end.
+
+
+
+print(t[-1])  # Output: 30
+Slicing: Extract a subset of the tuple.
+
+
+
+print(t[1:])  # Output: (20, 30)
+Tuple Methods
+Since tuples are immutable, their methods are limited compared to other collections like lists. Here are the available tuple methods:
+
+tuple.count(element)
+Returns the number of occurrences of an element in the tuple.
+
+
+
+t = (1, 2, 2, 3)
+print(t.count(2))  # Output: 2
+tuple.index(element[, start[, end]])
+Returns the index of the first occurrence of an element. Raises a ValueError if the element is not found.
+
+
+
+print(t.index(2))  # Output: 1
+Operations with Tuples
+Concatenation:
+
+
+
+t1 = (1, 2)
+t2 = (3, 4)
+t3 = t1 + t2
+print(t3)  # Output: (1, 2, 3, 4)
+Repetition:
+
+
+
+t = (1, 2)
+print(t * 2)  # Output: (1, 2, 1, 2)
+Membership Testing:
+
+
+
+t = (1, 2, 3)
+print(2 in t)   # Output: True
+print(4 not in t)  # Output: True
+Iterating:
+
+
+
+for item in (10, 20, 30):
+    print(item)
+# Output: 
+# 10
+# 20
+# 30
+Tuple Unpacking
+You can assign tuple elements to multiple variables in one step.
+
+
+
+t = (1, 2, 3)
+a, b, c = t
+print(a, b, c)  # Output: 1 2 3
+Using * for variable-length unpacking:
+
+
+
+t = (1, 2, 3, 4)
+a, *b, c = t
+print(a, b, c)  # Output: 1 [2, 3] 4
+Advantages of Tuples
+Immutability: Safer for storing constant data.
+Faster than lists: Accessing tuple elements is slightly faster because of their immutability.
+Hashable: Can be used as keys in dictionaries if they contain only hashable elements.
+Tuple vs. List
+Feature Tuple   List
+Syntax  (1, 2, 3)   [1, 2, 3]
+Mutable No  Yes
+Performance Faster  Slower
+Methods Limited (count, index)  Extensive (e.g., append, remove)
+Example of Tuple Usage:
+
+
+# Tuple with mixed data types
+person = ("John", 25, "Engineer")
+
+# Accessing elements
+print(person[0])  # Output: John
+
+# Checking membership
+print(25 in person)  # Output: True
+
+# Unpacking
+name, age, profession = person
+print(f"{name} is a {age}-year-old {profession}.")
+# Output: John is a 25-year-old Engineer.
+Tuples are especially useful when you need a collection of items that should not change, like coordinates, configurations, or database records.
+
+
+
+
+
+

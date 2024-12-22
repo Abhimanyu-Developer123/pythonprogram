@@ -1,0 +1,823 @@
+Types of parameter
+___
+
+(1)requried parameter
+(2)default parameter
+(3)keyword parameter
+(4)variable length parameter
+
+
+requried parameter
+__
+def show(a,b,c,d):
+	print(a,b,c,d)
+
+show(10,12.34,"hi",5)
+#show(1,5,7) error
+
+o/p:
+10 12.34 hi 5
+
+
+
+default parameter
+__
+
+def  show(a=0,b=0,c=10,d=0):
+	print(a,b,c,d)
+show(5,"hi")
+show(1,5,7,12.34)
+show()
+
+o/p:
+5 hi 10 0
+1 5 7 12.34
+0 0 0 0
+
+
+
+keyword parameter
+__
+
+def  show(a=0,b=3,c=10,d=0):
+	print(a,b,c,d)
+show(1,5,7,12.34)
+show(d=25,c=12,a=5,b=1)
+show(c=30)
+o/p:
+1 5  7  12.34
+5 1  12  25
+0 3 30 0
+
+
+
+variable length parameter
+___
+*args (Variable-Length Positional Arguments)
+The *args syntax allows a function to accept any number of positional arguments. Inside the function, args is treated as a tuple.
+
+def show(*a):…Read more
+10:17 PM
+Tommorow 7:30 am class is ok
+10:21 PM
+Online??
+10:21 PM
+11/10/2024
+7.30
+7:19 AM
+Am
+7:19 AM
+Okay sir
+7:19 AM
+Hi Sir 
+Can you send me todays notes??
+8:51 AM
+Ok
+8:55 AM
+Types of parameter
+___
+
+(1)requried parameter
+(2)default parameter
+(3)keyword parameter
+(4)variable length parameter
+
+
+requried parameter
+__
+def show(a,b,c,d):
+	print(a,b,c,d)
+
+show(10,12.34,"hi",5)
+#show(1,5,7) error
+
+o/p:
+10 12.34 hi 5
+
+
+
+default parameter
+__
+
+def  show(a=0,b=0,c=10,d=0):
+	print(a,b,c,d)
+show(5,"hi")
+show(1,5,7,12.34)
+show()
+
+o/p:
+5 hi 10 0
+1 5 7 12.34
+0 0 0 0
+
+
+
+keyword parameter
+__
+
+def  show(a=0,b=3,c=10,d=0):
+	print(a,b,c,d)
+show(1,5,7,12.34)
+show(d=25,c=12,a=5,b=1)
+show(c=30)
+o/p:
+1 5  7  12.34
+5 1  12  25
+0 3 30 0
+
+
+
+variable length parameter
+___
+*args (Variable-Length Positional Arguments)
+The *args syntax allows a function to accept any number of positional arguments. Inside the function, args is treated as a tuple.
+
+def show(*a):
+	print(a)
+show(10,12.34)
+show("hi",1,5.3)
+
+o/p:
+(10, 12.34)
+('hi', 1, 5.3)
+
+
+def multiply(*args):
+    result = 1
+    for num in args:
+        result *= num
+    return result
+
+# Calling with a varying number of arguments
+print(multiply(2, 3))          # Output: 6
+print(multiply(2, 3, 4))       # Output: 24
+print(multiply(1, 2, 3, 4, 5)) # Output: 120
+
+
+
+
+
+
+
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Calling with varying keyword arguments
+print_info(name="Alice", age=30, city="New York")
+# Output:
+# name: Alice
+# age: 30
+# city: New York
+print_info(brand="Toyota", model="Corolla", year=2020)
+# Output:
+# brand: Toyota
+# model: Corolla
+# year: 2020
+
+
+
+def show(*a,b):
+	print(a)
+show(10,12.34)
+show("hi",1,5.3)
+
+o/p:
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\demo.py", line 3, in <module>
+    show(10,12.34)
+TypeError: show() missing 1 required keyword-only argument: 'b'
+
+
+
+def show(b,*a):
+	print(a)
+show(10,12.34,"hi")
+show("bye",1,5.3)
+o/p:
+(12.34, 'hi')
+(1, 5.3)
+
+
+
+Combining *args and **kwargs
+You can use both *args and **kwargs in the same function. However, *args must come before **kwargs in the function definition.
+
+Example:
+def display(*args, **kwargs):
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
+
+# Calling with both positional and keyword arguments
+display(1, 2, 3, name="Alice", age=30)
+# Output:
+# Positional arguments: (1, 2, 3)
+# Keyword arguments: {'name': 'Alice', 'age': 30}
+
+
+
+
+
+local  variable    vs global variable
+_____
+
+local  variable :
+A variable defined  inside function that is known as local variable .
+That is visible within that function. not access other function.
+
+def show():
+	a=10
+	print("local ",a)
+def disp():
+	#print(a) error
+	print("hi")
+show()
+disp()
+#print(a)
+o/p:
+local 10
+hi
+
+
+
+global  variable:
+A variable defined outside function that is known as global.
+that can acees  all function
+
+a=10
+def show():
+	print("global ",a)
+def disp():
+	print(a)
+	print("hi")
+show()
+disp()
+print(a)
+
+o/p:
+global 10
+10
+hi
+10
+
+
+def show():
+	print(a)
+a=10
+show()
+print(a)
+
+
+
+
+
+a=10
+def show():
+	a=30
+	print("local ",a)
+def disp():
+	print(a)
+	print("hi")
+show()
+disp()
+print(a)
+
+o/p:
+local  30
+10
+hi
+10
+
+
+
+a=10
+def show():
+	global a
+	a=30
+	print(a) #global a display 30
+def disp():
+	print(a)  #30
+	print("hi")
+show()
+disp()
+print(a)   #30
+
+
+o/p:
+30
+30
+hi
+30
+
+
+a=10
+def show():
+	a=30
+	print(a) #local 30
+	print(locals()['a'])#local 30
+	print(globals()['a']) #global 10
+	globals()['a']=40	
+show()
+print(a)
+
+o/p:
+30
+30
+10
+40
+
+
+
+
+amount=10000
+def deposit(amt):
+	global amount
+	amount=amount+amt 
+	print(amt,"deposit")
+def withdraw(amt):
+	global amount 
+	amount=amount-amt 
+	print(amt,"withdraw")
+print("balance=",amount)
+deposit(3000)
+withdraw(6000)
+print("balance=",amount)
+
+
+o/p:
+balance= 10000
+3000 deposit
+6000 withdraw
+balance= 7000
+
+
+
+call by value or call by refernce
+_____
+call by value (value send)  int,float complex string, tuple
+def update(a):
+	print(a)
+	a=20
+a=10
+update(a)
+print(a)
+
+o/p:
+10
+10
+
+call by address(reference send) list ,set, dict
+def update(L):
+	print(L)
+	L.append(40)
+L=[10,20,30]
+update(L)
+print(L)
+[10, 20, 30]
+[10,20,30,40]
+ 
+
+
+ 
+
+function alias
+___
+def show():
+	print("show function")
+s=show
+d=s
+show()
+s()
+d()
+
+
+A lambda function in Python is an anonymous, one-line function defined with the lambda keyword instead of the usual def keyword. Unlike regular functions, lambda functions don’t have a name, which is why they’re also called anonymous functions.
+
+Syntax of a Lambda Function
+
+lambda arguments: expression
+lambda: Indicates that a lambda function is being created.
+arguments: The input values that the lambda function will accept (just like parameters in a regular function).
+expression: The single expression that the lambda function will evaluate and return.
+Key Characteristics
+Single Expression: A lambda function can only contain a single expression, not multiple statements or complex logic. The result of this expression is automatically returned.
+Anonymous: Lambda functions are usually unnamed (though they can be assigned to a variable).
+Compact: Lambda functions are often used when a small function is needed only temporarily, like in sorting, filtering, or mapping operations.
+Example of a Lambda Function
+Simple Lambda Function for Addition:
+
+add = lambda x, y: x + y
+print(add(3, 5))  # Output: 8
+
+When to Use Lambda Functions
+Lambda functions are useful when:
+You need a short, simple function for a quick task.
+You want to pass a function as an argument (e.g., for sorting, filtering, or mapping).
+You don’t need a full, reusable function definition.
+While lambda functions are convenient, they are limited by their simplicity and are best suited for one-liner operations.
+
+lambda function
+___
+without lambda  find the square
+____
+def  sq(x):
+	y=x*x
+	return y
+res=sq(5)  #res variable
+print(res)
+
+
+lambda function 
+__
+
+lambda parameter: expression
+
+
+res=lambda x:x*x   #res function
+print(res(5))
+
+
+
+
+without lambda function
+___
+
+def add(x,y):
+	return x+y 
+res=add(10,20)
+print(res)
+
+
+using lambda
+___
+
+res=lambda x,y:x+y
+print(res(2,3))
+
+
+
+Nested Functions:
+Functions defined within other functions are called nested functions.
+Useful in closures and decorators.
+
+def outer():
+    def inner():
+        print("Inner function")
+    inner()
+outer()  # Output: Inner function
+
+
+Closures
+A closure is a function that captures variables from its surrounding scope.
+This allows functions to "remember" values even after the outer function has finished executing.
+
+
+
+def make_multiplier(n):
+    def multiplier(x):
+        return x * n
+    return multiplier
+
+double = make_multiplier(2)
+print(double(5))  # Output: 10
+
+
+
+
+
+def make_multiplier(n):
+    def multiplier(x):
+        return x * n
+    return multiplier
+
+double = make_multiplier(2)
+print(double(5))  # Output: 10
+Outer Function - make_multiplier(n):
+
+This function takes an argument n and defines an inner function called multiplier(x).
+The multiplier function multiplies its argument x by n, which comes from the outer function.
+Returning a Closure:
+
+make_multiplier returns the multiplier function itself, but it "remembers" the value of n even after make_multiplier has finished executing.
+This concept, where an inner function captures and remembers the variable(s) from its enclosing scope, is called a closure.
+Using the Closure:
+
+double = make_multiplier(2) creates a closure with n set to 2. double now refers to this specific multiplier function with n = 2.
+When double(5) is called, it calculates 5 * 2, resulting in 10.
+Why Closures are Useful
+Closures are particularly useful when you want to create functions that retain certain state or configuration. Here, make_multiplier allows creating custom multiplier functions, like double (which doubles numbers) or triple (if you call make_multiplier(3)).
+
+
+
+def make_counter():
+    count = 0  # This is the outer variable that the inner function will remember
+
+    def counter():
+        nonlocal count  # Use nonlocal to modify the outer 'count' variable
+        count += 1
+        return count
+
+    return counter
+
+# Creating a counter instance
+my_counter = make_counter()
+
+# Using the counter function
+print(my_counter())  # Output: 1
+print(my_counter())  # Output: 2
+print(my_counter())  # Output: 3
+
+
+
+
+
+
+Decorators
+Decorators are functions that modify the behavior of other functions.
+They are applied using the @decorator_name syntax.
+
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+
+o/p:
+Something is happening before the function is called.
+Hello!
+Something is happening after the function is called.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In Python, decorators are functions that modify the behavior of other functions or methods. They allow you to wrap a function or method in another function, enabling additional functionality or modifications without changing the original function’s code. Decorators are commonly used in Python for logging, authentication, and enforcing access control, among other use cases.
+
+Basic Decorator Syntax
+A decorator function typically takes a function as an argument, wraps some additional functionality around it, and returns a new function.
+
+Creating a Simple Decorator
+Let’s start by creating a simple decorator that logs when a function is called.
+
+
+def my_decorator(func):
+    def wrapper():
+        print("Function is about to be called.")
+        func()  # Call the original function
+        print("Function has been called.")
+    return wrapper
+Applying the Decorator
+You can apply the decorator using the @decorator_name syntax above the function you want to decorate.
+
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+# Calling the decorated function
+say_hello()
+
+# Output:
+# Function is about to be called.
+# Hello!
+# Function has been called.
+Here’s how it works:
+
+@my_decorator applies the my_decorator function to say_hello.
+When say_hello() is called, it executes the wrapper function inside my_decorator.
+This wrapper adds additional functionality (printing messages) before and after calling the original say_hello function.
+How Decorators Work Behind the Scenes
+Using the @ syntax is a shorthand for applying the decorator directly, like this:
+
+
+say_hello = my_decorator(say_hello)
+This line replaces say_hello with wrapper, the function returned by my_decorator.
+
+Decorators with Arguments
+If the function being decorated takes arguments, the decorator’s wrapper function should accept *args and **kwargs to pass them through.
+
+
+def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Function is about to be called.")
+        result = func(*args, **kwargs)  # Pass arguments through
+        print("Function has been called.")
+        return result
+    return wrapper
+
+@my_decorator
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Alice")
+# Output:
+# Function is about to be called.
+# Hello, Alice!
+# Function has been called.
+Real-World Example: Timing a Function
+Here’s an example of a decorator that times how long a function takes to run:
+
+
+import time
+
+def timer_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"Function '{func._name_}' took {end_time - start_time:.4f} seconds to execute.")
+        return result
+    return wrapper
+
+@timer_decorator
+def compute_square(n):
+    return [i ** 2 for i in range(n)]
+
+compute_square(10000)
+In this example, timer_decorator prints the time taken by compute_square to execute.
+
+Multiple Decorators
+You can apply multiple decorators to a function by stacking them. The decorators will be applied from the top down.
+
+
+def decorator1(func):
+    def wrapper():
+        print("Decorator 1")
+        func()
+    return wrapper
+
+def decorator2(func):
+    def wrapper():
+        print("Decorator 2")
+        func()
+    return wrapper
+
+@decorator1
+@decorator2
+def greet():
+    print("Hello!")
+
+greet()
+# Output:
+# Decorator 1
+# Decorator 2
+# Hello!
+Decorators with Arguments
+You can create decorators that accept their own arguments by adding an extra outer function layer.
+
+
+def repeat(num_times):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(num_times):
+                func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@repeat(3)
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Output:
+# Hello!
+# Hello!
+# Hello!
+Here, the repeat decorator allows us to specify how many times the function should be called.
+
+Using functools.wraps to Preserve Metadata
+When you use a decorator, it can change the original function’s name and docstring, which may cause issues with debugging and documentation. To preserve the original function’s metadata, use functools.wraps.
+
+
+from functools import wraps
+
+def my_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Function is about to be called.")
+        result = func(*args, **kwargs)
+        print("Function has been called.")
+        return result
+    return wrapper
+
+@my_decorator
+def say_hello():
+    """This function says hello."""
+    print("Hello!")
+
+print(say_hello._name_)  # Output: say_hello
+print(say_hello._doc_)   # Output: This function says hello.
+Using @wraps keeps the name and docstring of say_hello intact, rather than showing it as wrapper.
+
+Summary
+Decorators wrap functions, adding extra behavior.
+They are applied with the @decorator_name syntax.
+Use *args and **kwargs in the wrapper to handle any arguments passed to the decorated function.
+Decorators with arguments require an additional outer function layer.
+Use functools.wraps to preserve the original function’s metadata.
+Decorators are a powerful feature in Python, widely used to enhance code readability and reusability, especially in web frameworks, libraries, and complex projects.
+
+decimal number   0 to 9   base=10               25  
+binary  number   0 to 1    base=2               101   
+
+octal  number   0 to  7    base=8                0235    045
+
+hexdecimal number   0 to 9 10 11 12 13 14 15   base=16     0x2A   
+                            A  B C  D  E  F
+
+decimal to binary number
+
+(25)10=(11001)2
+
+
+(18)10=(10010)
+
+
+binary to decimal
+_______
+
+(1011)2=(11)10
+
+(11001)2=(25)10
+
+
+
+128   64  32  16  8   4  2  1  
+               1  1   0  0  1    25
+               1  0   0  1  0    18
+               1  0   1  1  1    23
+                  1   0  1  1     11
+
+
+decimal to octal number
+
+(25)10=(31)8
+
+
+(18)10=(22)8
+
+128   64  32  16  8   4  2  1 
+               1  1   0  0  1    25
+                      0  1  1
+
+               1 0   0   1   0   18
+                     0    1  0
+
+octal to decimal
+_______
+
+(37)8=(31)10
+
+(24)8=(20)10
+
+128   64  32  16  8   4  2  1 
+               1  1   1  1  1     37
+
+                1 0  1  0  0      20
+
+
+decimal to hexdecimal
+ _______
+
+(28)10=(1C)16
+
+(37)10=( 25 )16
+
+
+128   64  32  16  8   4  2  1 
+               1  1   1  0  0      28
+                                    1 C
+
+           1  0  0   1  0   1       37
+                                    25
+
+
+hexdecimal to  decimal
+________
+
+
+(2B)16=(43)10
+(3C)16=( 60 )
+128   64  32  16  8   4  2  1
+           1  0   1   0  1  1 
+           1  1    1   1  0  0

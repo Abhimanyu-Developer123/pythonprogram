@@ -1,0 +1,146 @@
+module :
+it is a python file.
+inside module we write function variable class .
+There are 2 types of modules
+(1)predefined module
+   sys
+   random
+   .
+   .
+   .
+
+
+(2)userdefined module
+that name must be valid identifier
+
+
+
+How to use module
+________
+we can use module 4 way
+(1)import modulename
+(2)import moulename as dupname
+(3)from modulename import member,member
+(4)from modulename import *
+
+
+mymodule.py
+______
+def show():
+	print("show function")
+def add(no1,no2):
+	return no1+no2
+a=10
+
+
+first.py
+_____
+import mymodule
+mymodule.show()
+print("sum=",mymodule.add(10,20))
+print(mymodule.a)
+
+second.py
+____
+import mymodule as m
+m.show()
+print("sum=",m.add(10,20))
+print(m.a)
+
+third.py
+___
+from mymodule import show,add,a
+show()
+print("sum=",add(10,20))
+print(a)
+
+
+four.py
+___
+from mymodule import *
+show()
+print("sum=",add(10,20))
+print(a)
+
+
+
+
+import math 
+print(math.pow(2,3))
+print(math.sqrt(16))
+print(math.pi)
+
+
+import math as m
+print(m.pow(2,3))
+print(m.sqrt(16))
+print(m.pi)
+
+
+from math import pow,sqrt,pi
+print(pow(2,3))
+print(sqrt(16))
+print(pi)
+
+
+
+from math import *
+print(pow(2,3))
+print(sqrt(16))
+print(pi)
+
+
+
+package/libary
+____
+
+package  is collection of subpackage and realted module.
+
+every package is a floder
+evary folder is not a package
+
+rule
+____
+inside folder there must be _init_.py    file
+that file must be balnk file.
+inside subfloder also _init_.py
+
+
+
+
+
+x->y->_init_.py
+blank file nothing write
+
+x->y->mymath.py
+________
+def add(no1,no2):
+	return no1+no2
+a=10
+
+
+inside x->
+
+f.py
+_____
+import y.mymath
+print(y.mymath.add(10,20))
+print(y.mymath.a)
+
+s.py
+____
+import y.mymath as m
+print(m.add(10,20))
+print(m.a)
+
+t.py
+___
+from y.mymath import add,a
+print(add(10,20))
+print(a)
+
+f.py
+____
+from y.mymath import *
+print(add(10,20))
+print(a)

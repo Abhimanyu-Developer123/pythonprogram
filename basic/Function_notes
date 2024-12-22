@@ -1,0 +1,203 @@
+function
+  _____
+  2 types of function
+
+  (1)predefined function
+  print()  input() id() ......
+
+  (2)userdefined function
+that name must be valid identifier.
+
+
+How to define function
+_______
+
+
+def functionname(formal argument/parameter):
+	local variable
+	logic
+	return
+
+
+example
+_____
+
+def add(no1,no2):
+	s=0
+	s=no1+no2
+	print("sum=",s)
+	return 
+
+
+How to execute function
+_______
+syntax:
+
+functionname(actual argument/parameter)
+ex:
+add(10,20)
+add(2.5,4.7)
+a=5
+b=7
+add(a,b)
+add(a+3,5)
+
+
+
+
+print("A")
+print("B")
+print("C")
+print("A")
+print("B")
+print("C")
+print("A")
+print("B")
+print("C")
+
+here above program solve using loop
+
+i=1
+while i<=3:
+	print("A")
+	print("B")
+	print("C")
+	i=i+1
+
+
+
+
+
+
+print("A")
+print("B")
+print("C")
+print("D")
+print("A")
+print("B")
+print("C")
+print("E")
+print("A")
+print("B")
+print("C")
+print("F")
+
+above program solve using function
+
+
+show()
+print("D")
+show()  # function call
+print("E")
+show() 
+print("F")
+def show():
+	print("A")
+	print("B")
+	print("C")
+
+
+benfits of function
+_______
+(1)program length small
+(2)time save
+(3)reuseablity
+(4)error detction  debguging
+(5)modularzation
+
+
+
+we can write function program 4 way
+___________
+
+(1)no return value no argument
+(2) no return value with argument
+(3)return value with no argument
+(4)return  value with argument
+
+
+//add two number one time
+
+print("enter two nos ")
+no1=int(input())
+no2=int(input())
+s=no1+no2
+print("sum=",s)
+
+
+
+
+//add two number two time
+print("enter two nos ")
+no1=int(input())
+no2=int(input())
+s=no1+no2
+print("sum=",s)
+print("enter two nos ")
+no1=int(input())
+no2=int(input())
+s=no1+no2
+print("sum=",s)
+
+
+slove this program using function no return value no argument
+_____________________
+def add():
+	print("enter two nos ")
+	no1=int(input())
+	no2=int(input())
+	s=no1+no2
+	print("sum=",s)
+	return
+add()
+
+
+
+
+slove this program using function no return value with argument
+_____________________
+def add(no1,no2):   # no1,no2  formal argument
+	s=no1+no2
+	print("sum=",s)
+	return
+print("enter two nos ")
+no1=int(input())
+no2=int(input())
+add(no1,no2) # function call no1,no2 actual argument
+
+
+or
+def add(x,y):   # no1,no2  formal argument
+	s=x+y
+	print("sum=",s)
+	return
+print("enter two nos ")
+no1=int(input())
+no2=int(input())
+add(no1,no2) # function call no1,no2 actual argument
+
+
+
+slove this program using function  return value with no argument
+_____________________
+def add():  
+	print("enter two nos ")
+	no1=int(input())
+	no2=int(input())
+	s=no1+no2
+	return s
+res=add() 
+print("sum=",res)
+
+
+
+slove this program using function  return value with  argument
+_____________________
+def add(no1,no2):  
+	s=no1+no2
+	return s
+print("enter two nos ")
+no1=int(input())
+no2=int(input())
+res=add(no1,no2) 
+print("sum=",res)
