@@ -1,0 +1,1349 @@
+Object-Oriented Programming (OOP) is a programming paradigm that uses (objects) to represent data and methods to manipulate that data. Python, being an object-oriented language, supports OOP concepts such as classes, objects, inheritance, polymorphism, encapsulation, and abstraction.
+
+Key OOP Concepts in Python
+Class and Object
+
+Class: 
+A blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods).
+
+Object: 
+An instance of a class. It represents the actual entity created from the class blueprint.
+
+
+
+Inheritance
+A mechanism by which one class (child class) can inherit attributes and methods from another class (parent class). It allows code reuse and establishes a relationship between classes.
+
+Polymorphism
+
+The ability of different objects to respond to the same method in different ways. It allows methods to have different implementations across different classes.
+
+Encapsulation
+The bundling of data (attributes) and methods that operate on the data into a single unit or class. Encapsulation restricts direct access to some of an objects components and can prevent the accidental modification of data.
+
+Abstraction
+The concept of hiding the complex implementation details and showing only the essential features of the object. It helps in reducing code complexity and increases reusability.
+
+Example of OOP in Python
+Lets go through a simple example that demonstrates these OOP concepts in Python.
+
+
+# Defining a class
+class Animal:
+    def init(self, name, species):
+        self.name = name  # Attribute
+        self.species = species  # Attribute
+    
+    def speak(self):  # Method
+        return f"{self.name} makes a sound."
+
+# Creating an object (instance) of the class
+dog = Animal("Buddy", "Dog")
+cat = Animal("Whiskers", "Cat")
+
+print(dog.name)  # Accessing attributes
+print(cat.speak())  # Calling methods
+
+
+
+
+# Defining a parent class
+class Animal:
+    def init(self, name):
+        self.name = name
+    
+    def speak(self):
+        return f"{self.name} makes a sound."
+
+# Defining a child class that inherits from Animal
+class Dog(Animal):
+    def speak(self):  # Method overriding
+        return f"{self.name} barks."
+
+# Creating an instance of the Dog class
+dog = Dog("Buddy")
+print(dog.speak())  # Output: "Buddy barks."
+
+
+
+
+
+class Animal:
+    def init(self, name):
+        self.name = name
+    
+    def speak(self):
+        return f"{self.name} makes a sound."
+
+# Polymorphism example with a function
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} meows."
+
+def animal_speak(animal):
+    print(animal.speak())
+
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+
+animal_speak(dog)  # Output: "Buddy barks."
+animal_speak(cat)  # Output: "Whiskers meows."
+
+
+
+
+ Encapsulation
+
+class BankAccount:
+    def init(self, balance):
+        self.__balance = balance  # Private attribute
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+    
+    def get_balance(self):
+        return self.__balance
+
+# Creating an instance
+account = BankAccount(1000)
+account.deposit(500)
+print(account.get_balance())  # Output: 1500
+
+
+
+
+from abc import ABC, abstractmethod
+
+# Abstract class
+class Vehicle(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+# Concrete class
+class Car(Vehicle):
+    def start_engine(self):
+        print("Engine started.")
+
+# Creating an instance
+my_car = Car()
+my_car.start_engine()  # Output: "Engine started."
+
+
+
+
+
+
+
+
+
+How to define class
+_______________________
+
+class classname:
+	constructor
+	method
+	datamember
+
+How to create object
+____________________
+
+
+classname()  #nameless object
+objectrefence=classname()
+
+
+
+without oops store student name rollno and mark store 1 student
+________________________________________________
+name="abhi"
+rollno=1
+mark=90.50
+print("my name",name)
+print("my rollno=",rollno)
+print("my mark=",mark)
+
+
+
+
+
+
+without oops store student name rollno and mark store 2 student
+________________________________________________
+name="abhi"
+rollno=1
+mark=90.50
+print("my name",name)
+print("my rollno=",rollno)
+print("my mark=",mark)
+name="ayush"
+rollno=2
+mark=80.50
+print("my name",name)
+print("my rollno=",rollno)
+print("my mark=",mark)
+
+
+
+without oops store student name rollno and mark store 2 student
+__________________________________________________________________________
+name="abhi"
+rollno=1
+mark=90.50
+
+name1="ayush"
+rollno1=2
+mark1=80.50
+print("my name",name)
+print("my rollno=",rollno)
+print("my mark=",mark)
+print("my name",name1)
+print("my rollno=",rollno1)
+print("my mark=",mark1)
+
+
+
+solve these program using oops
+____________________________________________
+
+class Student:
+	def set(self):
+		self.name="abhi"
+		self.rollno=1
+		self.mark=90.50
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.set()
+s.disp()
+
+
+o/p:
+name=abhi
+rollno=1
+mark=90.50
+
+
+
+
+
+more than one object here all data same.
+
+class Student:
+	def set(self):
+		self.name="abhi"
+		self.rollno=1
+		self.mark=90.50
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.set()
+s.disp()
+s1=Student()
+s1.set()
+s1.disp()
+
+
+solution
+____________________ take input form keyboard
+
+class Student:
+	def set(self):
+		print("enter name rollno and mark ")
+		self.name=input()
+		self.rollno=int(input())
+		self.mark=float(input())
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.set()
+
+s1=Student()
+s1.set()
+s.disp()
+s1.disp()
+
+
+
+differnt object differnt values  using parameter method
+
+class Student:
+	def set(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.set("abhi",1,90.50)
+s.disp()
+s1=Student()
+s1.set("ayush",2,80.50)
+s1.disp()
+
+
+
+
+class Student:
+	def __init__(self):
+		self.name="abhi"
+		self.rollno=1
+		self.mark=90.50
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.disp()
+
+
+
+
+
+class Student:
+	def __init__(self):
+		self.name="abhi"
+		self.rollno=1
+		self.mark=90.50
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.disp()
+s1=Student()
+s1.disp()
+
+
+keyboard input
+______________________________________
+
+
+class Student:
+	def __init__(self):
+		print("enter name rollno and mark ")
+		self.name=input()
+		self.rollno=int(input())
+		self.mark=float(input())
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.disp()
+s1=Student()
+s1.disp()
+
+
+
+
+
+class Student:
+	def __init__(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student("abhi",1,90.50)
+s.disp()
+s1=Student("ayush",2,80.50)
+s1.disp()
+
+
+diifernt type method
+_______________________________________________
+(1)instance method
+(2)class method
+(3)static method
+
+--------------------------- 
+
+
+(1)instance method /object method
+________________________________________
+that method is call alway by object.
+here show method instance method 
+
+class Student:
+	def __init__(self,n):
+		self.name=n
+	def show(self):
+		print("my name is",self.name)
+s=Student("abhi")
+s.show()
+s1=Student("ayush")
+s1.show()
+
+o/p:
+my name is abhi
+my name is ayush
+
+(2)class method
+this method calling by class.
+we create classmethod must be class  decorator.
+it must be take one argument.
+it can acess by classname .
+in class method access class variable.
+class Student:
+	@classmethod
+	def admission(cls):
+		print("admiision start")
+Student.admission(10)
+
+(3)static method
+we can define static metod using  staticmethod decorator.
+it take no argumnet
+it can be acess by classname.
+using static method we can create utility class.
+
+class Arith:
+	@staticmethod
+	def add(no1,no2):
+		print("sum=",no1+no2)
+Arith.add(10,20)
+
+
+class Student:
+	def set(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def disp(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+#s.set("abhi",1,90.50)
+s.disp()
+
+
+constructor
+_______________
+it is a special method.
+it look like  __init__(self)   
+other langange constructor same as classname.
+
+
+whenever object is created constructor block automatically execute.
+
+class Test:
+	def __init__(self):
+		print("zero argument constructor")
+t=Test()
+
+o/p:
+zero argument constructor
+
+
+
+
+class Test:
+	def init(self):
+		print("zero argument constructor")
+t=Test()
+t1=Test()
+
+o/p:
+zero argument constructor
+Zero argument constructor
+
+
+
+class Test:
+	def init(self):
+		self.x=10
+		self.y=20
+	def show(self):
+		print(self.x,self.y)
+t=Test()
+t.show()
+
+o/p:
+10 20
+
+
+
+class Test:
+	def init(self):
+		self.x=10
+		self.y=20
+	def show(self):
+		print(self.x,self.y)
+t=Test()
+t.show()
+t1=Test()
+t1.show()
+o/p:
+10 20
+10 20
+
+
+Here all object values are same
+
+
+if we provide differnt object differnt values we use parameter constructor.
+
+class Test:
+	def init(self,p,q):
+		self.x=p
+		self.y=q
+	def show(self):
+		print(self.x,self.y)
+t=Test(10,20)
+t.show()
+t1=Test(30,40)
+t1.show()
+
+o/p:
+10 20
+30 40
+
+
+constructor overloading not avaliable in python
+
+if we write more than constructor or more than method same name  last one is final.
+
+class Test:
+	def init(self):
+		print("hi")
+	def init(self,p,q):
+		print("bye ",p,q)
+#t=Test() error
+t1=Test(10,20)
+o/p:
+bye 10 20
+
+
+
+
+class Test:
+	def init(self,p,q):
+		print("bye ",p,q)
+	def init(self):
+		print("hi")
+t=Test()
+#t1=Test(10,20) error
+o/p:
+hi
+
+
+constructor with default parameter
+________________________________
+class Test:
+	def init(self,p=0,q=0):
+		print("bye ",p,q)
+t=Test()
+t1=Test(10,20)
+o/p:
+bye 0 0
+bye 10 20
+
+
+
+
+#without constructor
+class Student:
+	def set(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def show(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student()
+s.set("abhi",1,90.50)
+s.show()
+
+
+#using constructor
+
+class Student:
+	def __init__(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def show(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student("abhi",1,90.50)
+s.show()
+
+
+
+class Student:
+	def init(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def show(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s1=Student("abhi",1,90.50)
+s1.show()
+s2=Student("ayush",2,80.50)
+s2.show()
+
+
+
+
+
+
+class Student:
+	def init(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def show(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+print("enter name roll mark")
+s=Student(input(),int(input()),float(input()))
+s.show()
+
+class Student:
+	def init(self,n,r,m):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def show(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+print("enter name roll mark")
+n=input()
+r=int(input())
+m=float(input())
+s=Student(n,r,m)
+s.show()
+
+
+
+class Student:
+	def init(self,n="",r=0,m=0.0):
+		self.name=n
+		self.rollno=r
+		self.mark=m
+	def show(self):
+		print("name=",self.name)
+		print("rollno=",self.rollno)
+		print("mark=",self.mark)
+s=Student("abhi",1,90.50)
+s1=Student("ayush")
+s.show()
+s1.show()
+
+
+
+
+#wap take rectangle length and breadth display length breadth area and perimeter
+
+class Rectangle:
+	def init(self,p,q):  #constructor
+		self.L=p   #L datamember
+		self.B=q
+	def show(self):  #show method
+		print("length=",self.L)
+		print("breadth=",self.B)
+	def area(self);   #area Method
+		print("area of rectangle=",self.L*self.B)
+	def perimeter(self):  #method
+		return 2*(self.L+self.B)
+r=Rectangle(5,6)  # r object refernce 
+r.show()
+r.area()
+print("perimeter=",r.peri())
+
+
+
+
+
+
+#wap take rectangle length and breadth display length breadth area and perimeter
+
+class Rectangle:
+	def init(self,p,q):
+		self.L=p
+		self.B=q
+	def show(self):
+		print("length=",self.L)
+		print("breadth=",self.B)
+	def area(self);
+		print("area of rectangle=",self.L*self.B)
+	def perimeter(self):
+		return 2*(self.L+self.B)
+print("enter rectangle length and breadth")
+r=Rectangle(int(input(),int(input()))
+r.show()
+r.area()
+print("perimeter=",r.peri())
+
+
+
+class square:
+    def init(self,s):
+        self.s=s
+    def show(self):
+        print("side of square",self.s)
+    def area(self):
+    	print("area of square=",self.s*self.s)
+    def perimiter(self):
+        return self.s*4
+print("enter square side")
+s=square(int(input()))
+s.show()
+s.area();
+print("perimiter=",s.perimiter())
+
+class name student
+
+
+constructor
+ name rollno  3 mark
+
+show()
+
+
+cal()
+  totalmark
+  avg
+  avg>=90  'o grade'
+  avg<90 and avg>=70   'A grade'
+avg<70 and avg>=50     'B grade'
+'c' grade
+
+
+
+
+
+
+class Student:
+    def init(self,n,r,m1,m2,m3):
+        self.name=n
+        self.roll=r
+        self.mark1=m1
+        self.mark2=m2
+        self.mark3=m3
+    def show(self):
+        print("name=",self.name)
+        print("rollno=",self.roll)
+        print("mark1=",self.mark1)
+        print("mark2=",self.mark2)
+        print("mark3=",self.mark3)
+    def calc(self):
+        total=self.mark1+self.mark2+self.mark3
+        avg=total/3
+        print("total mark=",total)
+        print("avg mark=",avg)
+        if avg>=90:
+            print("o grade")
+        elif avg>=70:
+            print("A grade")
+        elif avg>=50:
+            print("B grade")
+        else:
+            print("fail")
+s=Student("abhi",1,90,80,70);
+s.show()
+s.calc()
+
+
+
+
+
+
+destructor
+_________________
+whenever object is destory destrucor automatically execute.
+it look like del(self)
+
+class Test:
+	def init(self):
+		print("constructor")
+	def del(self):
+		print("destructor")
+t=Test()
+
+o/p:
+constructor
+destrcuctor
+
+
+class Test:
+	def init(self):
+		print("constructor")
+	def del(self):
+		print("destructor")
+t=Test()
+t1=Test()
+t2=Test()
+o/p:
+constructor
+constructor
+constructor
+destructor
+destructor
+destructor
+
+
+
+class Test:
+	def init(self):
+		print("constructor")
+	def del(self):
+		print("destructor")
+t=Test()
+t1=Test()
+t2=Test()
+o/p:
+constructor
+constructor
+constructor
+destructor
+destructor
+destructor
+
+
+
+class Test:
+	def init(self):
+		print("constructor")
+	def del(self):
+		print("destructor")
+t=Test()
+t=None
+t1=Test()
+t2=Test()
+o/p:
+constructor
+destructor
+constructor
+constructor
+destructor
+destructor
+
+
+class Test:
+	def init(self):
+		print("constructor")
+	def del(self):
+		print("destructor")
+def show():
+	t=Test()
+	print("show function")
+show()
+t1=Test()
+t2=Test()
+
+o/p:
+constructor
+show function
+destructor
+constructor
+constructor
+destructor
+destructor
+
+
+
+
+How to create private data and private method
+_____________________________________________
+in python there is no access modifier.
+
+create private we can use __
+it can acess only inside class.
+private data and method not acesss outside class directly.
+it access indirectly by other method(not private)
+
+class Test:
+	def init(self):
+		self.x=10
+		self.__y=20
+t=Test()
+print(t.x)
+#print(t.__y) error
+
+
+
+
+
+
+class Test:
+	def init(self):
+		self.x=10    #public
+		self.__y=20  #private
+	def getY(self):
+		return self.__y
+t=Test()
+print(t.x)
+#print(t.__y) error
+print(t.getY())
+
+o/p:
+10
+20
+
+
+class Test:
+	def init(self):
+		self.x=10    #public
+		self.__y=20  #private
+	def __show(self):
+		print("x value=",self.x)
+		print("y value=",self.__y)
+	def disp(self):
+		self.__show()
+t=Test()
+#t.__show() error
+t.disp()
+
+
+
+
+setter and getter method
+___________________________
+
+using setter method initlize and modify the value
+
+using getter method access the values.
+
+class Student:
+	def init(self,n,r,m):
+		self.__name=n
+		self.__rollno=r
+		self.__mark=m
+	def show(self):
+		print("name=",self.__name)	
+		print("rollno=",self.__rollno)
+		print("mark=",self.__mark)
+	def modify(self,n,r,m):
+		self.__name=n 
+		self.__rollno=r
+		self.__mark=m
+	def setName(self,n):
+		self.__name=n
+	def setRollno(self,rollno):
+		self.__rollno=rollno
+	def setMark(self,mark):
+		self__mark=mark
+	def getName(self):
+		return self.__name
+	def getRollno(self):
+		return self.__rollno
+	def getMark(self):
+		return self.__mark
+s=Student("abhi",1,90.50)
+s.modify("abhi das",2,80.50)
+s.show()
+print("name=",s.getName())
+
+types of variable
+_____________________
+(1)local
+(2)global
+(3)instance varible
+(4)class varibale
+
+local varibale
+
+_________________
+A variable defined inside function ,constructor, method that is known
+ as local variable.that variable is created whenever invoke that.
+
+def show():
+	a=10 #local variable
+	print("local=",a)
+show()
+print(a) # error
+
+o/p:
+local 10
+
+
+
+global variable
+__________________
+A variable defined outside  class or outside function  that is known as global variable.
+that variable is created automatical.
+a=10  #global variable
+def show():
+	print(a)
+show()
+print(a)
+
+o/p:
+10
+10
+
+
+
+instance variable
+______________________
+object variable is known as instance variable.
+a good programmer  create instance variable  indside the constructor.
+but we can create any location.
+
+n no of object n no of times instance variable created.
+a=10 #global variable
+class Test:
+	def init(self):
+		self.x=10 #instance variable
+		self.y=20
+	def show(self,c):
+		b=3#local variable
+		self.z=30
+t=Test()
+t.show(5)
+t.zz=40
+print(t.dict)
+o/p:
+{'x': 10, 'y': 20, 'z': 30, 'zz': 40}
+
+
+
+class Test:
+	def init(self):
+		self.x=10 #instance variable
+		self.y=20 # instance variable
+	def show(self,c):
+		b=3#local variable
+		self.z=30 # instance variable
+t=Test()
+t.show(5)
+t.zz=40 #instance variable
+print(t.dict)
+t1=Test()
+print(t1.dict)
+
+o/p:
+{'x': 10, 'y': 20, 'z': 30, 'zz': 40}
+{'x': 10, 'y': 20}
+
+
+
+
+class Test:
+	def init(self):
+		self.x=10 #instance variable
+		self.y=20
+	def show(self):
+		print(self.x,self.y)
+		
+t=Test()
+t.show()
+t1=Test()
+t1.show()
+
+o/p:
+
+10 20
+10 20
+
+
+
+
+
+class Test:
+	def __init__(self):
+		self.x=10 #instance variable
+		self.y=20
+	def show(self):
+		print(self.x,self.y)
+		
+t=Test()
+t.show()
+t1=Test()
+t1.show()
+t.x=30
+t.y=40
+t.show()
+t1.show()
+
+o/p:
+C:\Users\HP\Desktop\threadingprogram\pythonproject>py demo.py
+10 20
+10 20
+30 40
+10 20
+
+
+class Test:
+	def init(self):
+		self.x=10 #instance variable
+		self.y=20
+	def show(self):
+		print(self.x,self.y)
+		
+t=Test()
+t.show()
+t1=t
+t1.show()
+print(id(t),id(t1))
+t.x=40
+t.y=60
+t.show()
+t1.show()
+
+
+o/p:
+C:\Users\LENOVO\OneDrive\Desktop\pythonprogramcvr>py 1.py
+10 20
+10 20
+2809766240400 2809766240400
+40 60
+40 60
+
+
+
+
+
+a=10 #global variable
+class Test:
+	def init(self):
+		self.x=10 #instance variable
+		self.y=20
+	def show(self,c):
+		b=3#local variable
+		self.z=30
+t=Test()
+t.show(5)
+t.zz=40
+print(t.dict)
+t1=Test()
+print(t1.dict)
+o/p:
+{'x': 10, 'y': 20, 'z': 30, 'zz': 40}
+{'x': 10, 'y': 20}
+
+
+
+class variable
+________________
+The variable created inside class directly that is knowna is
+ class variable.
+class variable memory created only once.
+
+class Test:
+	a=10#class variable
+	def init(self):
+		Test.b=20#class variable
+		self.c=30 #instance variable
+	@classmethod
+	def show(cls):
+		cls.d=30 #class variable
+print(Test.dict)
+t=Test()
+Test.show()
+Test.e=40
+print(Test.dict)
+
+
+
+
+class Test:
+	x=10
+	def init(self):
+		Test.y=20
+	@classmethod
+	def create(cls):
+		cls.z=30
+t=Test()
+Test.create()
+Test.zz=50
+print(Test.dict)
+print(t.dict)
+
+o/p:
+{'module': 'main', 'x': 10, 'init': <function Test.init at 0x0000020F67BB8E00>, 'create': <classmethod(<function Test.create at 0x0000020F67BB8F40>)>, 'dict': <attribute 'dict' of 'Test' objects>, 'weakref': <attribute 'weakref' of 'Test' objects>, 'doc': None, 'y': 20, 'z': 30, 'zz': 50}
+{}
+
+
+
+class Test:
+	x=10  #better   create class variable
+	def init(self):
+		Test.y=20  #class variable
+	@classmethod
+	def create(cls):
+		cls.z=30   #class variable
+	@staticmethod
+	def set():
+		Test.zzz=80  #class variable
+t=Test()
+Test.create()
+Test.zz=50  #class variable
+Test.set()
+print(Test.dict)
+print(t.dict)
+
+
+o/p:
+{'module': 'main', 'x': 10, 'init': <function Test.init at 0x0000027671DE8E00>, 'create': <classmethod(<function Test.create at 0x0000027671DE8F40>)>, 'set': <staticmethod(<function Test.set at 0x0000027671DE8FE0>)>, 'dict': <attribute 'dict' of 'Test' objects>, 'weakref': <attribute 'weakref' of 'Test' objects>, 'doc': None, 'y': 20, 'z': 30, 'zz': 50, 'zzz': 80}
+{}
+
+
+How to delete class variable
+_____________________________
+class Test:
+	x=10  #better   create class variable
+	def init(self):
+		Test.y=20  #class variable
+	@classmethod
+	def create(cls):
+		cls.z=30   #class variable
+		del cls.x
+	@staticmethod
+	def set():
+		Test.zzz=80  #class variable
+t=Test()
+Test.create()
+Test.zz=50  #class variable
+Test.set()
+del Test.y
+print(Test.dict)
+
+o/p:
+{'module': 'main', 'init': <function Test.init at 0x0000025214048E00>, 'create': <classmethod(<function Test.create at 0x0000025214048F40>)>, 'set': <staticmethod(<function Test.set at 0x0000025214048FE0>)>, 'dict': <attribute 'dict' of 'Test' objects>, 'weakref': <attribute 'weakref' of 'Test' objects>, 'doc': None, 'z': 30, 'zz': 50, 'zzz': 80}
+
+
+
+class Test:
+	
+	def init(self):
+		self.y=10
+		self.z=30
+	def disp(self):
+		self.zz=40
+		del self.y
+
+t=Test()
+t.disp()
+t.zzz=50
+del t.z
+print(t.dict)
+
+
+C:\Users\HP\Desktop\threadingprogram\pythonproject>py demo.py
+{'zz': 40, 'zzz': 50}
+
+
+
+
+class Student:
+	name=""
+	roll=0
+	mark=0.0
+	def init(self,n,r,m):
+		self.name=n
+		self.roll=r
+		self.mark=m
+s=Student("abhi",1,90.50)
+print(Student.dict)
+print(s.dict)
+print(s.name)
+print(Student.name)
+
+
+o/p:
+
+C:\Users\HP\Desktop\threadingprogram\pythonproject>py demo.py
+{'module': 'main', 'name': '', 'roll': 0, 'mark': 0.0, 'init': <function Student.init at 0x00000283101A8E00>, 'dict': <attribute 'dict' of 'Student' objects>, 'weakref': <attribute 'weakref' of 'Student' objects>, 'doc': None}
+{'name': 'abhi', 'roll': 1, 'mark': 90.5}
+abhi
+
+
+
+
+
+
+class Student:
+	c=0
+	def init(self,n,r,m):
+		self.name=n
+		self.roll=r
+		self.mark=m
+		Student.c=Student.c+1
+s=Student("abhi",1,90.50)
+s1=Student("ayush",2,80)
+s2=Student("rita",3,78)
+print("no of student ",Student.c)
+
+o/p:
+no of student  3
+
+
+
+class Test:
+	x=0
+	def init(self):
+		self.x=0
+	def update(self):
+		Test.x=Test.x+1
+		self.x=self.x+1
+	def show(self):
+		print(Test.x,self.x)
+t1=Test()
+t2=Test()
+t3=Test()
+t1.update()
+t2.update()
+t3.update()
+t1.show()
+t2.show()
+t3.show()
+
+
+o/p:
+3 1
+3 1
+3 1
+
+
+
+class Test:
+	x=0
+	def init(self):
+		self.y=0
+t1=Test()
+print(t1.x,t1.y) #  0  0
+t2=Test()
+print(t2.x,t2.y)  # 0 0
+#print(t1.dict)
+#print(t2.dict)
+t1.y=30
+t2.y=40
+print(t1.x,t1.y)  # 0 30
+print(t2.x,t2.y)  #0 40
+Test.x=50
+print(t1.x,t1.y) # 50 30
+print(t2.x,t2.y) # 50 40
+t1.x=60
+print(t1.x,t1.y) # 60  30
+print(t2.x,t2.y) #50  40
+
+
+o/p:
+0 0
+0 0
+0 30
+0 40
+50 30
+50 40
+60 30
+50 40
