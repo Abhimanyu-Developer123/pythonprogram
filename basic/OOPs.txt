@@ -368,7 +368,7 @@ _______________________________________________
 (2)class method
 (3)static method
 
---------------------------- 
+--------------------------------------------------------------
 
 
 (1)instance method /object method
@@ -490,10 +490,10 @@ o/p:
 10 20
 
 
-Here all object values are same
+Here all objects values are same
 
 
-if we provide differnt object differnt values we use parameter constructor.
+if we provide differnt objects differnt values we use parameter constructor.
 
 class Test:
 	def init(self,p,q):
@@ -585,7 +585,7 @@ s.show()
 
 
 class Student:
-	def init(self,n,r,m):
+	def __init__(self,n,r,m):
 		self.name=n
 		self.rollno=r
 		self.mark=m
@@ -773,7 +773,7 @@ whenever object is destory destrucor automatically execute.
 it look like del(self)
 
 class Test:
-	def init(self):
+	def __init__(self):
 		print("constructor")
 	def del(self):
 		print("destructor")
@@ -863,7 +863,7 @@ destructor
 
 
 How to create private data and private method
-_____________________________________________
+____________________________________________
 in python there is no access modifier.
 
 create private we can use __
