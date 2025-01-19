@@ -1,0 +1,179 @@
+
+Operator Overloading in Python allows developers to redefine the behavior of operators for user-defined classes. By overloading operators, objects of custom classes can interact using standard operators like +, -, *, etc., in a meaningful way.
+
+How It Works:
+Python allows operator overloading by defining special methods in a class, also known as magic methods or dunder methods (double underscore methods). These methods start and end with double underscores, e.g., __add__, __sub__, etc.
+
+Example:
+python
+Copy
+Edit
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    # Overloading the addition operator
+    def __add__(self, other):
+        if isinstance(other, Point):
+            return Point(self.x + other.x, self.y + other.y)
+        raise TypeError("Unsupported type for addition")
+
+    # Overloading the subtraction operator
+    def __sub__(self, other):
+        if isinstance(other, Point):
+            return Point(self.x - other.x, self.y - other.y)
+        raise TypeError("Unsupported type for subtraction")
+
+    # Overloading the string representation
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
+# Example Usage
+p1 = Point(3, 4)
+p2 = Point(1, 2)
+
+p3 = p1 + p2  # Calls __add__
+p4 = p1 - p2  # Calls __sub__
+
+print(p3)  # Output: Point(4, 6)
+print(p4)  # Output: Point(2, 2)
+
+
+Common Magic Methods for Operator Overloading:
+Operator	Method	Example
++	__add__	obj1 + obj2
+-	__sub__	obj1 - obj2
+*	__mul__	obj1 * obj2
+/	__truediv__	obj1 / obj2
+//	__floordiv__	obj1 // obj2
+%	__mod__	obj1 % obj2
+**	__pow__	obj1 ** obj2
+<	__lt__	obj1 < obj2
+<=	__le__	obj1 <= obj2
+>	__gt__	obj1 > obj2
+>=	__ge__	obj1 >= obj2
+==	__eq__	obj1 == obj2
+!=	__ne__	obj1 != obj2
+
+
+Why Use Operator Overloading?
+Intuitive Syntax: Makes user-defined classes behave more like built-in types.
+Readable Code: Simplifies complex operations, making code more expressive.
+Custom Behavior: Adapts existing operators for specific business logic.
+Would you like an example with a more specific use case or details on overloading other operators?
+
+
+from datetime import datetime
+
+# Get the current date and time
+current_time = datetime.now()
+
+# Format the time as desired
+formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
+
+# Display the current date and time
+print("Current Date and Time:", formatted_time)
+------------------------------------------------------------------------------------------
+Explanation:
+datetime.now(): Retrieves the current date and time.
+strftime: Formats the date and time into a readable string. Common format codes:
+%Y: Year (e.g., 2025)
+%m: Month (e.g., 01)
+%d: Day of the month (e.g., 19)
+%H: Hour in 24-hour format (e.g., 10)
+%M: Minute (e.g., 41)
+%S: Second (e.g., 00)
+
+
+
+To demonstrate operator overloading for adding two times, let's create a custom class that represents time (e.g., hours, minutes, and seconds). We will overload the + operator to handle the addition of two Time objects while properly handling overflow (e.g., 60 seconds = 1 minute, 60 minutes = 1 hour).
+------------------------------------------------------------------------------
+class Time:
+    def __init__(self, hours=0, minutes=0, seconds=0):
+        self.hours = hours
+        self.minutes = minutes
+        self.seconds = seconds
+        self.normalize__time()  # Ensure time is in proper format
+
+    def normalize_time(self):
+        """Normalizes time so seconds < 60 and minutes < 60."""
+        self.minutes += self.seconds // 60
+        self.seconds %= 60
+        self.hours += self.minutes // 60
+        self.minutes %= 60
+
+    def __add__(self, other):
+        """Overloads the + operator to add two Time objects."""
+        if isinstance(other, Time):
+            return Time(
+                self.hours + other.hours,
+                self.minutes + other.minutes,
+                self.seconds + other.seconds
+            )
+        raise TypeError("Unsupported type for addition with Time object")
+
+    def __str__(self):
+        """Formats time as a string."""
+        return f"{self.hours:02d}:{self.minutes:02d}:{self.seconds:02d}"
+
+# Example Usage
+time1 = Time(1, 45, 50)  # 1 hour, 45 minutes, 50 seconds
+time2 = Time(2, 30, 40)  # 2 hours, 30 minutes, 40 seconds
+
+total_time = time1 + time2  # Calls __add__
+
+print("Time 1:", time1)
+print("Time 2:", time2)
+print("Total Time:", total_time)
+Explanation:
+normalize_time():
+
+
+
+-----------------------------------------------------------------------------------
+
+Ensures seconds and minutes are within proper limits (e.g., 0–59).
+Handles overflow (e.g., 70 seconds becomes 1 minute 10 seconds).
+__add__:
+
+Adds the hours, minutes, and seconds of two Time objects.
+Returns a new Time object with the result.
+__str__:
+
+Formats the time in a human-readable format like HH:MM:SS.
+
+
+
+class Time:
+    def __init__(self, hours=0, minutes=0, seconds=0):
+        self.hours = hours
+        self.minutes = minutes
+        self.seconds = seconds
+
+    def total_seconds(self):
+        """Converts time into total seconds."""
+        return self.hours * 3600 + self.minutes * 60 + self.seconds
+
+    def __lt__(self, other):
+        """Overloads the < operator to compare two Time objects."""
+        if isinstance(other, Time):
+            return self.total_seconds() < other.total_seconds()
+        raise TypeError("Unsupported comparison between Time and other types")
+
+    def __str__(self):
+        """Formats time as a string."""
+        return f"{self.hours:02d}:{self.minutes:02d}:{self.seconds:02d}"
+
+# Example Usage
+time1 = Time(2, 30, 0)  # 2 hours, 30 minutes
+time2 = Time(3, 15, 0)  # 3 hours, 15 minutes
+
+print("Time 1:", time1)
+print("Time 2:", time2)
+
+# Using the < operator
+if time1 < time2:
+    print(f"{time1} is earlier than {time2}")
+else:
+    print(f"{time1} is not earlier than {time2}")

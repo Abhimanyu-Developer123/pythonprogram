@@ -1,0 +1,260 @@
+
+An Abstract class in Python serves as a blueprint for other classes. It cannot be instantiated directly but can define methods that must be implemented by subclasses. Abstract classes are created using the abc (Abstract Base Class) module.
+----------------------------------------------------------------------------------------
+Key Features of Abstract Classes:
+Cannot be instantiated: You cannot create objects of an abstract class.
+Must have at least one abstract method: Defined using the @abstractmethod decorator.
+Encourages method standardization: Forces subclasses to implement specific methods.
+---------------------------------------------------------------------------------
+Example: Abstract Class in Python
+
+
+from abc import ABC, abstractmethod
+
+# Define an abstract class
+class Animal(ABC):
+    @abstractmethod
+    def speak(self):
+        """Abstract method that must be implemented by subclasses"""
+        pass
+
+    def sleep(self):
+        """Concrete method available to all subclasses"""
+        print("Sleeping...")
+
+# Subclass implementing the abstract method
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks")
+
+# Subclass implementing the abstract method
+class Cat(Animal):
+    def speak(self):
+        print("Cat meows")
+
+# Example Usage
+animals = [Dog(), Cat()]
+
+for animal in animals:
+    animal.speak()
+    animal.sleep()
+
+#Output:
+#Dog barks
+#Sleeping...
+#Cat meows
+#Sleeping...
+
+
+----------------------------------------------------
+
+Explanation:
+Animal(ABC):
+Inherits from the ABC class to indicate it’s an abstract base class.
+@abstractmethod:
+Marks the speak() method as abstract, requiring subclasses to implement it.
+Concrete Methods:
+Methods like sleep() are optional for subclasses to override.
+
+Why Use Abstract Classes?
+Enforces a Contract: Ensures all subclasses adhere to a specific interface.
+Encapsulation of Shared Logic: Shared functionality can be defined in the abstract class, reducing code duplication.
+Extensibility: Makes it easier to add new classes while maintaining consistent behavior.
+Instantiation Error: Attempting to instantiate an abstract class directly will raise a TypeError:
+
+animal = Animal()
+Error:
+
+TypeError: Can't instantiate abstract class Animal with abstract methods speak
+
+--------------------------------------------------------------------------------------------
+
+Here’s another example of using abstract classes in a real-world scenario: Shape Calculations. This example demonstrates how abstract classes can be used to define a template for calculating the area of different shapes.
+
+Example: Abstract Class for Shapes
+
+
+
+from abc import ABC, abstractmethod
+
+# Define an abstract class
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        """Abstract method to calculate the area of the shape."""
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        """Abstract method to calculate the perimeter of the shape."""
+        pass
+
+# Subclass for Rectangle
+class Rectangle(Shape):
+    def _init_(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+# Subclass for Circle
+class Circle(Shape):
+    def _init_(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+
+# Subclass for Square
+class Square(Shape):
+    def _init_(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side * self.side
+
+    def perimeter(self):
+        return 4 * self.side
+
+# Example Usage
+shapes = [
+    Rectangle(10, 5),
+    Circle(7),
+    Square(4)
+]
+
+for shape in shapes:
+    print(f"{type(shape)._name_} - Area: {shape.area()}, Perimeter: {shape.perimeter()}")
+Explanation:
+Abstract Class (Shape):
+
+------------------------------------------------------------------------------------------------
+
+Defines a contract with the area() and perimeter() abstract methods.
+Forces all subclasses to implement these methods.
+Rectangle, Circle, and Square Classes:
+
+Provide specific implementations for the area() and perimeter() methods.
+Polymorphism:
+
+The shapes list contains different types of shapes, but all can be treated uniformly because they inherit from the same abstract class.
+Output:
+mathematica
+Copy
+Edit
+Rectangle - Area: 50, Perimeter: 30
+Circle - Area: 153.86, Perimeter: 43.96
+Square - Area: 16, Perimeter: 16
+
+
+
+
+Here’s an example of an abstract class for a Banking System. It demonstrates how an abstract class can define a template for various types of bank accounts, with subclasses providing specific implementations.
+
+Example: Abstract Class for a Banking System
+
+from abc import ABC, abstractmethod
+
+# Abstract class for BankAccount
+class BankAccount(ABC):
+    def _init_(self, account_number, balance):
+        self.account_number = account_number
+        self.balance = balance
+
+    @abstractmethod
+    def deposit(self, amount):
+        """Abstract method to deposit money."""
+        pass
+
+    @abstractmethod
+    def withdraw(self, amount):
+        """Abstract method to withdraw money."""
+        pass
+
+    def display_balance(self):
+        """Concrete method to display the balance."""
+        print(f"Account Number: {self.account_number}, Balance: {self.balance}")
+
+# Subclass for SavingsAccount
+class SavingsAccount(BankAccount):
+    def _init_(self, account_number, balance, interest_rate):
+        super()._init_(account_number, balance)
+        self.interest_rate = interest_rate
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Deposited {amount} into Savings Account.")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient balance!")
+        else:
+            self.balance -= amount
+            print(f"Withdrew {amount} from Savings Account.")
+
+# Subclass for CurrentAccount
+class CurrentAccount(BankAccount):
+    def _init_(self, account_number, balance, overdraft_limit):
+        super()._init_(account_number, balance)
+        self.overdraft_limit = overdraft_limit
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Deposited {amount} into Current Account.")
+
+    def withdraw(self, amount):
+        if amount > self.balance + self.overdraft_limit:
+            print("Overdraft limit exceeded!")
+        else:
+            self.balance -= amount
+            print(f"Withdrew {amount} from Current Account.")
+
+# Example Usage
+savings = SavingsAccount("S12345", 1000, 0.05)
+current = CurrentAccount("C67890", 500, 1000)
+
+savings.display_balance()
+savings.deposit(200)
+savings.withdraw(500)
+savings.withdraw(800)
+
+current.display_balance()
+current.deposit(300)
+current.withdraw(700)
+current.withdraw(1200)
+Explanation:
+Abstract Class (BankAccount):
+
+Defines common attributes (account_number, balance) and methods (deposit, withdraw).
+Provides a concrete method (display_balance) to share functionality across all subclasses.
+SavingsAccount:
+
+Implements deposit and withdraw methods.
+Includes a unique interest_rate attribute.
+CurrentAccount:
+
+Implements deposit and withdraw methods.
+Includes an overdraft_limit attribute, allowing withdrawals beyond the account balance.
+
+
+Sample Output:
+Account Number: S12345, Balance: 1000
+Deposited 200 into Savings Account.
+Withdrew 500 from Savings Account.
+Insufficient balance!
+Account Number: C67890, Balance: 500
+Deposited 300 into Current Account.
+Withdrew 700 from Current Account.
+Overdraft limit exceeded!
+This example illustrates how abstract classes provide a standardized interface for different types of accounts while allowing flexibility in their specific implementations. Would you like to extend this example further, e.g., adding transaction history? 😊
+
+
+
+

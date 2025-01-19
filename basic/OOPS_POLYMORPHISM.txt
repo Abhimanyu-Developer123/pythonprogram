@@ -1,0 +1,90 @@
+
+Polymorphism is one of the key principles of Object-Oriented Programming (OOP). It allows objects of different classes to be treated as objects of a common superclass. This makes code more flexible and extensible by allowing the same interface or method to work differently based on the object it operates on.
+
+Types of Polymorphism:
+Compile-time Polymorphism (Method Overloading):
+
+Achieved when multiple methods have the same name but different arguments.
+Python doesn’t directly support method overloading, but it can be simulated.
+Run-time Polymorphism (Method Overriding):
+
+Achieved through inheritance.
+A subclass provides its own implementation of a method defined in the parent class.
+Example: Method Overloading (Simulated in Python)
+Python does not directly support method overloading because the last defined method overrides earlier definitions. However, you can use default or variable arguments to achieve similar functionality.
+
+python
+Copy
+Edit
+class Calculator:
+    def add(self, a, b=0, c=0):
+        return a + b + c
+
+# Example Usage
+calc = Calculator()
+print(calc.add(5))          # Calls add(5, 0, 0) -> Output: 5
+print(calc.add(5, 10))      # Calls add(5, 10, 0) -> Output: 15
+print(calc.add(5, 10, 20))  # Calls add(5, 10, 20) -> Output: 35
+Example: Method Overriding
+In method overriding, a child class provides its own version of a method that is already defined in the parent class.
+
+python
+Copy
+Edit
+class Animal:
+    def speak(self):
+        return "Animal speaks"
+
+class Dog(Animal):
+    def speak(self):
+        return "Dog barks"
+
+class Cat(Animal):
+    def speak(self):
+        return "Cat meows"
+
+# Example Usage
+animals = [Animal(), Dog(), Cat()]
+
+for animal in animals:
+    print(animal.speak())
+Output:
+Copy
+Edit
+Animal speaks
+Dog barks
+Cat meows
+Polymorphism with Functions and Objects
+Polymorphism allows the same function to handle objects of different types.
+
+python
+Copy
+Edit
+class Rectangle:
+    def area(self, length, breadth):
+        return length * breadth
+
+class Circle:
+    def area(self, radius):
+        return 3.14 * radius * radius
+
+# Polymorphic Function
+def print_area(shape, *args):
+    print("Area:", shape.area(*args))
+
+# Example Usage
+rect = Rectangle()
+circle = Circle()
+
+print_area(rect, 10, 20)   # Output: Area: 200
+print_area(circle, 5)      # Output: Area: 78.5
+Advantages of Polymorphism:
+Flexibility: Allows a single interface to handle multiple data types or classes.
+Reusability: Promotes code reuse by letting you write generalized code.
+Readability: Simplifies code by abstracting class-specific details.
+Would you like to explore a specific aspect of polymorphism, such as examples involving abstract classes or interfaces? 😊
+
+
+
+
+
