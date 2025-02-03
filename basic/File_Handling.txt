@@ -1,0 +1,166 @@
+File Handling in Python
+File handling in Python allows us to create, read, write, and modify files. Python provides built-in functions to work with files efficiently.
+
+1. Opening a File (open() function)
+Syntax:
+
+python
+Copy
+Edit
+file = open("filename", mode)
+"filename" → Name of the file.
+mode → Specifies the mode of operation.
+Modes in Python File Handling
+
+Mode	Description
+'r'     Read mode (default). Opens the file for reading.
+'w'     Write mode. Overwrites the file if it exists, creates a new file if it doesn't.
+'a'     Append mode. Adds content to the end of the file.
+'x'     Create mode. Creates a file, but raises an error if it already exists.
+'r+'    Read and write mode.
+'w+'	Write and read mode. Overwrites the file.
+'a+'	Append and read mode.
+
+2. Writing to a File
+
+file = open("sample.txt", "w")  # Open file in write mode
+file.write("Hello, World!\nWelcome to Python file handling.")
+file.close()  # Always close the file
+
+
+#Output in sample.txt:
+#Hello, World!
+#Welcome to Python file handling.
+
+
+3. Reading from a File
+
+file = open("sample.txt", "r")
+content = file.read()
+print(content)
+file.close()
+
+Output:
+Hello, World!
+Welcome to Python file handling.
+
+Reading Specific Number of Characters
+
+file = open("sample.txt", "r")
+print(file.read(5))  # Reads only the first 5 characters
+file.close()
+
+Output:
+Hello
+
+4. Reading Line by Line
+Using readline()
+
+file = open("sample.txt", "r")
+print(file.readline())  # Reads the first line
+file.close()
+
+Output:
+Hello, World!
+
+Using readlines() (Reads all lines into a list)
+
+file = open("sample.txt", "r")
+lines = file.readlines()
+for line in lines:
+    print(line.strip())  # Removes the newline character
+file.close()
+
+Output:
+Hello, World!
+Welcome to Python file handling.
+
+5. Appending to a File
+
+file = open("sample.txt", "a")  # Open file in append mode
+file.write("\nAppending a new line!")
+file.close()
+
+Now, if you read the file, the content will be:
+
+Hello, World!
+Welcome to Python file handling.
+Appending a new line!
+
+6. Using with Statement (Best Practice)
+Using with ensures the file is closed automatically after use.
+
+with open("sample.txt", "r") as file:
+    print(file.read())  # No need to close the file manually
+
+7. Checking if a File Exists (Using os Module)
+
+import os
+
+if os.path.exists("sample.txt"):
+    print("File exists!")
+else:
+    print("File does not exist!")
+
+8. Deleting a File
+
+import os
+os.remove("sample.txt")  # Deletes the file
+To avoid errors:
+
+
+if os.path.exists("sample.txt"):
+    os.remove("sample.txt")
+    print("File deleted!")
+else:
+    print("File not found!")
+
+9. Working with Binary Files
+Binary files are useful for handling images, videos, and other non-text files.
+
+Writing Binary Data
+
+with open("binary_file.bin", "wb") as file:
+    file.write(b"Binary data example")
+Reading Binary Data
+
+
+with open("binary_file.bin", "rb") as file:
+    data = file.read()
+    print(data)
+
+
+10. Moving and Renaming Files
+
+import os
+
+os.rename("old_file.txt", "new_file.txt")  # Renames a file
+os.replace("file.txt", "folder/file.txt")  # Moves a file
+
+11. File Handling Using csv Module
+Writing to a CSV File
+python
+Copy
+Edit
+import csv
+
+with open("data.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Name", "Age", "City"])
+    writer.writerow(["Alice", 25, "New York"])
+    writer.writerow(["Bob", 30, "London"])
+Reading a CSV File
+python
+Copy
+Edit
+with open("data.csv", "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+Output:
+css
+Copy
+Edit
+['Name', 'Age', 'City']
+['Alice', '25', 'New York']
+['Bob', '30', 'London']

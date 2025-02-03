@@ -1,0 +1,446 @@
+Exception
+print("A")
+print("B")
+try:
+    print(10 // 0)  # This will cause a ZeroDivisionError
+    print("C")  # This line will not execute
+except:
+    print("denumerator never zero")  # This will handle the exception
+print("program end")
+Step-by-Step Execution:
+print("A") → Output: A
+print("B") → Output: B
+print(10 // 0) → This causes a ZeroDivisionError (division by zero).
+Since an exception occurs, Python immediately jumps to the except block.
+print("denumerator never zero") → Output: denumerator never zero
+print("program end") → Output: program end
+Final Output:
+css
+Copy
+Edit
+A
+B
+denumerator never zero
+program end
+Key Takeaways:
+The division by zero inside the try block raises an exception.
+The except block catches the exception and prints the error message.
+The program continues execution after handling the exception, skipping the print("C") line.
+Let me know if you need further clarification! 🚀
+
+
+
+
+
+
+
+You said:
+more example
+ChatGPT said:
+ChatGPT
+Here are some more examples of exception handling in Python:
+
+Example 1: Handling Multiple Exceptions
+python
+Copy
+Edit
+try:
+    a = int(input("Enter a number: "))
+    b = int(input("Enter another number: "))
+    print(a // b)  # Possible ZeroDivisionError
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError:
+    print("Invalid input! Please enter a number.")
+Input 1:
+yaml
+Copy
+Edit
+Enter a number: 10
+Enter another number: 0
+Output 1:
+csharp
+Copy
+Edit
+Cannot divide by zero!
+Input 2:
+yaml
+Copy
+Edit
+Enter a number: 10
+Enter another number: xyz
+Output 2:
+css
+Copy
+Edit
+Invalid input! Please enter a number.
+Example 2: Using finally Block
+python
+Copy
+Edit
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("File not found!")
+finally:
+    print("Execution completed.")
+Output (if file does not exist):
+arduino
+Copy
+Edit
+File not found!
+Execution completed.
+Output (if file exists):
+php-template
+Copy
+Edit
+<Contents of example.txt>
+Execution completed.
+The finally block always executes, whether an exception occurs or not.
+
+Example 3: Catching All Exceptions
+python
+Copy
+Edit
+try:
+    x = int("abc")  # Will cause a ValueError
+except Exception as e:
+    print("An error occurred:", e)
+Output:
+csharp
+Copy
+Edit
+An error occurred: invalid literal for int() with base 10: 'abc'
+Exception catches any error and prints its message.
+
+Example 4: Raising Custom Exceptions
+python
+Copy
+Edit
+def check_age(age):
+    if age < 18:
+        raise ValueError("You must be at least 18 years old.")
+    print("Access granted!")
+
+try:
+    check_age(15)
+except ValueError as e:
+    print("Error:", e)
+Output:
+javascript
+Copy
+Edit
+Error: You must be at least 18 years old.
+raise is used to throw a custom exception.
+
+Example 5: Nested try-except Blocks
+python
+Copy
+Edit
+try:
+    num_list = [10, 20, 30]
+    print(num_list[5])  # IndexError
+    try:
+        print(10 // 0)  # ZeroDivisionError
+    except ZeroDivisionError:
+        print("Cannot divide by zero!")
+except IndexError:
+    print("Index out of range!")
+Output:
+pgsql
+Copy
+Edit
+Index out of range!
+The outer try block catches the first error and prevents further execution.
+
+Example 6: Using else with try-except
+python
+Copy
+Edit
+try:
+    x = int(input("Enter a number: "))
+    y = int(input("Enter another number: "))
+    result = x // y
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError:
+    print("Invalid input! Enter a number.")
+else:
+    print("Result:", result)
+Input:
+yaml
+Copy
+Edit
+Enter a number: 10
+Enter another number: 2
+Output:
+makefile
+Copy
+Edit
+Result: 5
+The else block executes only if no exceptions occur.
+
+Let me know if you need more examples! 🚀
+
+
+
+
+
+
+
+You said:
+other example
+ChatGPT said:
+ChatGPT
+Here are some more exception handling examples in Python with different scenarios:
+
+Example 7: Handling KeyError in Dictionary
+python
+Copy
+Edit
+try:
+    student = {"name": "John", "age": 20}
+    print(student["grade"])  # KeyError because "grade" key doesn't exist
+except KeyError:
+    print("Key not found in dictionary!")
+Output:
+pgsql
+Copy
+Edit
+Key not found in dictionary!
+KeyError occurs when trying to access a missing key in a dictionary.
+
+Example 8: Handling TypeError
+python
+Copy
+Edit
+try:
+    result = "Hello" + 5  # TypeError: cannot concatenate str and int
+except TypeError:
+    print("Type mismatch error!")
+Output:
+nginx
+Copy
+Edit
+Type mismatch error!
+TypeError occurs when performing an operation on incompatible types.
+
+Example 9: Handling FileNotFoundError
+python
+Copy
+Edit
+try:
+    with open("non_existent_file.txt", "r") as file:
+        data = file.read()
+except FileNotFoundError:
+    print("File does not exist!")
+Output:
+arduino
+Copy
+Edit
+File does not exist!
+FileNotFoundError occurs when trying to open a non-existing file.
+
+Example 10: Handling IndexError in a List
+python
+Copy
+Edit
+try:
+    numbers = [1, 2, 3]
+    print(numbers[5])  # IndexError because index 5 does not exist
+except IndexError:
+    print("Index out of range!")
+Output:
+pgsql
+Copy
+Edit
+Index out of range!
+IndexError occurs when accessing an out-of-bounds index in a list.
+
+Example 11: Using pass in Exception Handling
+python
+Copy
+Edit
+try:
+    num = int("xyz")  # ValueError
+except ValueError:
+    pass  # Ignore the error and continue execution
+
+print("Program continues...")
+Output:
+nginx
+Copy
+Edit
+Program continues...
+pass is used to ignore an error without handling it explicitly.
+
+Example 12: Using assert for Exception Handling
+python
+Copy
+Edit
+try:
+    age = int(input("Enter your age: "))
+    assert age >= 18, "Age must be 18 or above"
+    print("You are eligible.")
+except AssertionError as e:
+    print("Error:", e)
+Input 1:
+yaml
+Copy
+Edit
+Enter your age: 20
+Output 1:
+sql
+Copy
+Edit
+You are eligible.
+Input 2:
+yaml
+Copy
+Edit
+Enter your age: 15
+Output 2:
+javascript
+Copy
+Edit
+Error: Age must be 18 or above
+assert is used for debugging and checking conditions. If the condition is False, it raises an AssertionError.
+
+Example 13: Raising Custom Exceptions
+python
+Copy
+Edit
+class NegativeNumberError(Exception):
+    pass
+
+try:
+    num = int(input("Enter a positive number: "))
+    if num < 0:
+        raise NegativeNumberError("Negative numbers are not allowed!")
+    print("Valid input:", num)
+except NegativeNumberError as e:
+    print("Error:", e)
+Input:
+css
+Copy
+Edit
+Enter a positive number: -5
+Output:
+javascript
+Copy
+Edit
+Error: Negative numbers are not allowed!
+Custom exceptions allow us to define our own error types.
+
+Example 14: Handling Multiple Exceptions in One Except Block
+python
+Copy
+Edit
+try:
+    num1 = int(input("Enter a number: "))
+    num2 = int(input("Enter another number: "))
+    result = num1 / num2
+except (ValueError, ZeroDivisionError) as e:
+    print("Error occurred:", e)
+else:
+    print("Result:", result)
+Input 1:
+yaml
+Copy
+Edit
+Enter a number: 10
+Enter another number: 0
+Output 1:
+vbnet
+Copy
+Edit
+Error occurred: division by zero
+Input 2:
+yaml
+Copy
+Edit
+Enter a number: 10
+Enter another number: abc
+Output 2:
+csharp
+Copy
+Edit
+Error occurred: invalid literal for int() with base 10: 'abc'
+This approach allows catching multiple exceptions in a single block.
+
+Let me know if you need more examples or explanations! 🚀
+
+
+
+
+
+
+
+You said:
+withdraw   wxception
+ChatGPT said:
+ChatGPT
+Example: Handling Withdrawal Exception in a Bank Account System
+This example demonstrates a custom withdrawal exception when trying to withdraw more money than the available balance.
+
+Python Code:
+python
+Copy
+Edit
+class InsufficientFundsError(Exception):
+    """Custom exception for insufficient balance."""
+    pass
+
+class BankAccount:
+    def _init_(self, balance):
+        self.balance = balance
+
+    def withdraw(self, amount):
+        try:
+            if amount > self.balance:
+                raise InsufficientFundsError("Insufficient funds! Withdrawal not allowed.")
+            self.balance -= amount
+            print(f"Withdrawal successful! New balance: {self.balance}")
+        except InsufficientFundsError as e:
+            print("Error:", e)
+
+# Creating a bank account with ₹5000 balance
+account = BankAccount(5000)
+
+# Trying to withdraw ₹7000 (more than balance)
+account.withdraw(7000)  # This should raise an exception
+
+# Trying to withdraw ₹3000 (valid transaction)
+account.withdraw(3000)  # Successful transaction
+Expected Output:
+yaml
+Copy
+Edit
+Error: Insufficient funds! Withdrawal not allowed.
+Withdrawal successful! New balance: 2000
+Explanation:
+InsufficientFundsError → A custom exception class.
+BankAccount Class → Represents a bank account with a balance.
+withdraw(amount) Method:
+Checks if the withdrawal amount is greater than the balance.
+If yes, it raises InsufficientFundsError.
+Otherwise, it deducts the amount and prints the new balance.
+Testing with Different Withdrawals:
+₹7000 withdrawal fails (raises exception).
+₹3000 withdrawal succeeds.
+Alternative Version with Try-Except in Main Code
+python
+Copy
+Edit
+try:
+    account.withdraw(8000)  # This will raise an exception
+except InsufficientFundsError as e:
+    print("Transaction failed:", e)
+This approach allows handling the exception outside the class.
+
+Let me know if you need modifications or additional features! 🚀
+
+
+

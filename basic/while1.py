@@ -1,4 +1,4 @@
 i=1
-while i<100:
-	print(i)
+while i<101:
+	print(i, f"*",i,f"=", i**3)
 	i=i+1
